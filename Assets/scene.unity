@@ -154,7 +154,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.32231835, g: 0.31239188, b: 0.39705884, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -227,6 +227,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalRayCount: 4
   verticalRayCount: 4
+  colissionMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!61 &1009072841
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -311,8 +314,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1009072839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.37, y: 0.54, z: 0}
-  m_LocalScale: {x: 1, y: 0.8805572, z: 1}
+  m_LocalPosition: {x: 0.04, y: 1.9, z: 0}
+  m_LocalScale: {x: 1.5438213, y: -1.3568789, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -326,11 +329,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1545973943}
   - component: {fileID: 1545973942}
-  - component: {fileID: 1545973941}
   - component: {fileID: 1545973940}
-  m_Layer: 8
+  - component: {fileID: 1545973941}
+  m_Layer: 9
   m_Name: Obstacle
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,20 +372,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1545973941
-MeshCollider:
+--- !u!61 &1545973941
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1545973939}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!33 &1545973942
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -397,8 +411,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1545973939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.305, y: -0.71, z: 0.08325195}
-  m_LocalScale: {x: 8.991819, y: 0.3810684, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.08325195}
+  m_LocalScale: {x: 10, y: 0.8696626, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
