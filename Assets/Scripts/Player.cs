@@ -10,6 +10,7 @@ public class Player : MonoBehaviour {
     // Variables
     float gravity = -20;
     float moveSpeed = 6;
+    float jumpVelocity = 8;
     Vector3 velocity;
 
     // 2d controller
@@ -30,6 +31,13 @@ public class Player : MonoBehaviour {
 
         // Setup horizontal unit collision
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        // Jumping!
+        // If the player presses space, and there is a collision occuring below them (i.e they are standing on something)
+        if(Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
+        {
+            velocity.y = jumpVelocity;
+        }
 
         // Every frame, set the x velocity
         velocity.x = input.x * moveSpeed;
