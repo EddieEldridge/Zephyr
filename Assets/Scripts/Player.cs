@@ -22,6 +22,12 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
+        // Prevent gravity from accumulating if the player is resting on a surface 
+        if(controller.collisions.above || controller.collisions.below)
+        {
+            velocity.y = 0;
+        }
+
         // Setup horizontal unit collision
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 

@@ -16,7 +16,23 @@ public class Controller2D : MonoBehaviour {
     float horizontalRaySpacing;
     float verticalRaySpacing;
 
-    public LayerMask colissionMask;
+    // Structs
+    public struct collisionInfo
+    {
+        public bool above;
+        public bool below;
+        public bool left;
+        public bool right;
+
+        // Function to reset our collisionInfo struct variables
+        public void Reset()
+        {
+            above = false;
+            below = false;
+            left = false;
+            right = false;
+        }
+    }
 
     // Create a struct to store our Raycast vectors(Collision detection rays)
     struct RaycastOrigins
@@ -25,24 +41,31 @@ public class Controller2D : MonoBehaviour {
         public Vector2 bottomLeft, bottomRight;
     }
 
+    // Collision detection mask for our player
+    public LayerMask collisionMask;
+
     BoxCollider2D collider;
     RaycastOrigins raycastOrigins;
 
+    // Reference to our collisionInfo struct
+    public collisionInfo collisions;
+
     private void Start()
     {
-        
-
         collider = GetComponent<BoxCollider2D>();
 
         // Call our functions
         CalculateRaySpacing();
     }
 
+    
+
     // Function to move our player
     public void Move(Vector3 velocity)
     {
         // Call our functions
         UpdateRaycastOrigins();
+        collisions.Reset();
 
         // Only need to check for horizontal collisions if our x velocity is not equal to zero
         if(velocity.x!=0)
@@ -67,7 +90,6 @@ public class Controller2D : MonoBehaviour {
     {
         // If moving up directionY will be positive, if moving down directionY will be negative
         float directionX = Mathf.Sign(velocity.x);
-
         float rayLength = Mathf.Abs(velocity.x) + skinWidth;
 
         // For loop to draw our vertical rays
@@ -80,7 +102,7 @@ public class Controller2D : MonoBehaviour {
 
 
             // Perform a raycast from our rayOrigin to the dire
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, colissionMask);
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
 
             // Function to determine if the player is hit or not
             // i.e if the ray's cast by our player collide with something
@@ -88,6 +110,13 @@ public class Controller2D : MonoBehaviour {
             {
                 velocity.x = (hit.distance - skinWidth) * directionX;
                 rayLength = hit.distance;
+
+                // If the player has hit something and they're moving left, collisions.left is set to true
+                collisions.left = directionX == -1;
+
+                // If the player has hit something and they're moving right, collisions.right is set to true
+                collisions.right = directionX == 1;
+
             }
 
             // Draw our collision detection rays so we can see them for debugging
@@ -115,7 +144,7 @@ public class Controller2D : MonoBehaviour {
 
 
             // Perform a raycast from our rayOrigin to the dire
-            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, colissionMask);
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
 
             // Function to determine if the player is hit or not
             // i.e if the ray's cast by our player collide with something
@@ -123,6 +152,12 @@ public class Controller2D : MonoBehaviour {
             {
                 velocity.y = (hit.distance - skinWidth) * directionY;
                 rayLength = hit.distance;
+
+                // If the player has hit something and they're moving down, collisions.below is set to true
+                collisions.below = directionY == -1;
+
+                // If the player has hit something and they're moving up, collisions.above is set to true
+                collisions.above = directionY == 1;
             }
 
             // Draw our collision detection rays so we can see them for debugging
