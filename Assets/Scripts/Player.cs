@@ -7,6 +7,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    // Variables
+    float gravity = -20;
+    Vector3 velocity;
+
     // 2d controller
     Controller2D controller;
 
@@ -14,5 +18,12 @@ public class Player : MonoBehaviour {
 	void Start () {
         controller = GetComponent<Controller2D>();
 	}
-	
+
+    private void Update()
+    {
+        // Set the velocity for our player
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
+    }
 }
