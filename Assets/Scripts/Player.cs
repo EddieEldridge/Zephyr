@@ -8,9 +8,12 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     // Variables
-    float gravity = -20;
+    public float jumpHeight =4;
+    public float timeToJumpApex =.4f;
     float moveSpeed = 6;
-    float jumpVelocity = 8;
+
+    float gravity;
+    float jumpVelocity;
     Vector3 velocity;
 
     // 2d controller
@@ -19,7 +22,14 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         controller = GetComponent<Controller2D>();
-	}
+
+        // Calculations for our gravity
+        gravity = -(jumpHeight * 2) /Mathf.Pow (timeToJumpApex, 2);
+
+        // Calculations for our jumpVelocity
+        jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        print("Gravity: " + gravity + "Jump Velocity: " + jumpVelocity);
+    }
 
     void Update()
     {
