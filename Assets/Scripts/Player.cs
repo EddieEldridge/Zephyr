@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 
     // Variables
     float gravity = -20;
+    float moveSpeed = 6;
     Vector3 velocity;
 
     // 2d controller
@@ -19,8 +20,14 @@ public class Player : MonoBehaviour {
         controller = GetComponent<Controller2D>();
 	}
 
-    private void Update()
+    void Update()
     {
+        // Setup horizontal unit collision
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        // Every frame, set the x velocity
+        velocity.x = input.x * moveSpeed;
+
         // Set the velocity for our player
         velocity.y += gravity * Time.deltaTime;
 

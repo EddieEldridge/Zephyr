@@ -44,11 +44,57 @@ public class Controller2D : MonoBehaviour {
         // Call our functions
         UpdateRaycastOrigins();
 
-        // Reference the velocity variable from our VerticalCollisions function 
-        verticalCollisions(ref velocity);
+        // Only need to check for horizontal collisions if our x velocity is not equal to zero
+        if(velocity.x!=0)
+        {
+            // Reference the velocity variable from our horizontalCollisions function 
+            horizontalColissions(ref velocity);
+        }
+
+        // Only need to check for vertical collisions if our y velocity is not equal to zero
+        if (velocity.y != 0)
+        {
+            // Reference the velocity variable from our VerticalCollisions function 
+            verticalCollisions(ref velocity);
+        }
 
         transform.Translate(velocity);
     }
+
+    // Function to draw our vertical collision detection rays 
+    // and pass the variable as a reference to any other function that needs it
+    void horizontalColissions(ref Vector3 velocity)
+    {
+        // If moving up directionY will be positive, if moving down directionY will be negative
+        float directionX = Mathf.Sign(velocity.x);
+
+        float rayLength = Mathf.Abs(velocity.x) + skinWidth;
+
+        // For loop to draw our vertical rays
+        for (int i = 0; i < horizontalRayCount; i++)
+        {
+            // If moving down, set raycastOrigins to bottomLeft
+            // otherwise, set raycastOrigins to topLeft
+            Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight;
+            rayOrigin += Vector2.up * (horizontalRaySpacing * i);
+
+
+            // Perform a raycast from our rayOrigin to the dire
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, colissionMask);
+
+            // Function to determine if the player is hit or not
+            // i.e if the ray's cast by our player collide with something
+            if (hit)
+            {
+                velocity.x = (hit.distance - skinWidth) * directionX;
+                rayLength = hit.distance;
+            }
+
+            // Draw our collision detection rays so we can see them for debugging
+            Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
+        }
+    }
+
 
     // Function to draw our vertical collision detection rays 
     // and pass the variable as a reference to any other function that needs it
@@ -79,7 +125,8 @@ public class Controller2D : MonoBehaviour {
                 rayLength = hit.distance;
             }
 
-            Debug.DrawRay(raycastOrigins.bottomLeft + Vector2.right * verticalRaySpacing * i, Vector2.up * -2, Color.red);
+            // Draw our collision detection rays so we can see them for debugging
+            Debug.DrawRay(rayOrigin, Vector2.up * directionY *rayLength, Color.red);
         }
     }
 
