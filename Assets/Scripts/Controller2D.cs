@@ -253,18 +253,20 @@ public class Controller2D : MonoBehaviour {
         float climbVelocityY = Mathf.Sign(slopeAngle * Mathf.Deg2Rad) * moveDistance;
 
         // Jumping on slope
-        if (velocity.y <= climbVelocityY)
+        if (velocity.y >= climbVelocityY)
         {
             // Debug
-            //print("Jumping on slope");
-
-            velocity.y = Mathf.Sign(slopeAngle * Mathf.Deg2Rad) * moveDistance;
+            print("Jumping on slope");
+        }
+        else
+        {
+            velocity.y = climbVelocityY;
             velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(velocity.x);
 
             // Enables player to jump when they are on the slope
             collisions.below = true;
             collisions.climbingSlope = true;
-            collisions.slopeAngle = slopeAngle;
+            collisions.slopeAngle = slopeAngle; 
         }
     }
 }
