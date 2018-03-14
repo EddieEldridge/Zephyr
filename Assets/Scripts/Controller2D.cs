@@ -126,6 +126,15 @@ public class Controller2D : MonoBehaviour {
                 // Debug
                 if(i==0 & slopeAngle <= maxClimbAngle)
                 {
+                    float distanceToSlopeStart = 0;
+                    
+                    // If we're trying to climb a new slope
+                    if(slopeAngle != collisions.slopeAngleOld)
+                    {
+                        distanceToSlopeStart = hit.distance - skinWidth;
+                        velocity.x -= distanceToSlopeStart * directionX;
+                    }
+
                     climbSlope(ref velocity, slopeAngle);
                 }
 
@@ -133,14 +142,21 @@ public class Controller2D : MonoBehaviour {
                 {
                     velocity.x = (hit.distance - skinWidth) * directionX;
                     rayLength = hit.distance;
+            
+                    // Fix problem with player jiggling on the slope
+                    if(collisions.climbingSlope)
+                    {
+                        velocity.y = Mathf.Tan(collisions.slopeAngle * Mathf.Deg2Rad) * Mathf.Abs(velocity.x);
+                    }
 
                     // If the player has hit something and they're moving left, collisions.left is set to true
                     collisions.left = directionX == -1;
 
                     // If the player has hit something and they're moving right, collisions.right is set to true
                     collisions.right = directionX == 1;
+
                 }
-               
+
 
             }
 
