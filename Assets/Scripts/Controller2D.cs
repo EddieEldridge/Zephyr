@@ -16,6 +16,9 @@ public class Controller2D : MonoBehaviour {
     float horizontalRaySpacing;
     float verticalRaySpacing;
 
+    // Highest angle the player can climb
+    float maxClimbAngle=80;
+
     // Structs
     public struct collisionInfo
     {
@@ -108,6 +111,16 @@ public class Controller2D : MonoBehaviour {
             // i.e if the ray's cast by our player collide with something
             if (hit)
             {
+                // Get the angle of surface we hit for climbing slopes
+                float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+
+                // Debug
+                if(i==0 & slopeAngle <= maxClimbAngle)
+                {
+                    climbSlope(ref velocity, slopeAngle);
+                }
+
+
                 velocity.x = (hit.distance - skinWidth) * directionX;
                 rayLength = hit.distance;
 
@@ -198,5 +211,9 @@ public class Controller2D : MonoBehaviour {
 
     }
     
-    
+    // Function for climbing slopes correctly
+    void climbSlope(ref Vector3 velocity, float slopeAngle)
+    {
+
+    }
 }
