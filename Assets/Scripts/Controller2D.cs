@@ -26,6 +26,9 @@ public class Controller2D : MonoBehaviour {
         public bool below;
         public bool left;
         public bool right;
+        public bool climbingSlope;
+
+        public float slopeAngle, slopeAngleOld;
 
         // Function to reset our collisionInfo struct variables
         public void Reset()
@@ -34,6 +37,9 @@ public class Controller2D : MonoBehaviour {
             below = false;
             left = false;
             right = false;
+            climbingSlope = false;
+            slopeAngleOld = slopeAngle;
+            slopeAngle = 0;
         }
     }
 
@@ -107,6 +113,9 @@ public class Controller2D : MonoBehaviour {
             // Perform a raycast from our rayOrigin to the dire
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
 
+            // Draw our collision detection rays so we can see them for debugging
+            Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
+
             // Function to determine if the player is hit or not
             // i.e if the ray's cast by our player collide with something
             if (hit)
@@ -120,20 +129,22 @@ public class Controller2D : MonoBehaviour {
                     climbSlope(ref velocity, slopeAngle);
                 }
 
+                if(!collisions.climbingSlope || slopeAngle > maxClimbAngle)
+                {
+                    velocity.x = (hit.distance - skinWidth) * directionX;
+                    rayLength = hit.distance;
 
-                velocity.x = (hit.distance - skinWidth) * directionX;
-                rayLength = hit.distance;
+                    // If the player has hit something and they're moving left, collisions.left is set to true
+                    collisions.left = directionX == -1;
 
-                // If the player has hit something and they're moving left, collisions.left is set to true
-                collisions.left = directionX == -1;
-
-                // If the player has hit something and they're moving right, collisions.right is set to true
-                collisions.right = directionX == 1;
+                    // If the player has hit something and they're moving right, collisions.right is set to true
+                    collisions.right = directionX == 1;
+                }
+               
 
             }
 
-            // Draw our collision detection rays so we can see them for debugging
-            Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength, Color.red);
+          
         }
     }
 
@@ -211,9 +222,27 @@ public class Controller2D : MonoBehaviour {
 
     }
     
-    // Function for climbing slopes correctly
+    // Function for climbing slopes without having to jump
     void climbSlope(ref Vector3 velocity, float slopeAngle)
     {
+        // Assign moveDistance to velocity.x in a positive value (Mathf.Abs)
+        float moveDistance = Mathf.Abs(velocity.x);
 
+        float climbVelocityY = Mathf.Sign(slopeAngle * Mathf.Deg2Rad) * moveDistance;
+
+        // Jumping on slope
+        if (velocity.y <= climbVelocityY)
+        {
+            // Debug
+            //print("Jumping on slope");
+
+            velocity.y = Mathf.Sign(slopeAngle * Mathf.Deg2Rad) * moveDistance;
+            velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(velocity.x);
+
+            // Enables player to jump when they are on the slope
+            collisions.below = true;
+            collisions.climbingSlope = true;
+            collisions.slopeAngle = slopeAngle;
+        }
     }
 }
