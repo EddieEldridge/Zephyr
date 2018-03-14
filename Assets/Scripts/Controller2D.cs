@@ -136,9 +136,10 @@ public class Controller2D : MonoBehaviour {
                     }
 
                     climbSlope(ref velocity, slopeAngle);
+                    velocity.x = (hit.distance - skinWidth) * directionX;
                 }
 
-                if(!collisions.climbingSlope || slopeAngle > maxClimbAngle)
+                if (!collisions.climbingSlope || slopeAngle > maxClimbAngle)
                 {
                     velocity.x = (hit.distance - skinWidth) * directionX;
                     rayLength = hit.distance;
