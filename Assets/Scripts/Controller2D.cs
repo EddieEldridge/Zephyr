@@ -10,6 +10,7 @@ public class Controller2D : MonoBehaviour {
     // Variables
     const float skinWidth = .015f;
 
+    // Number of collision detection rays cast from each side of the player
     public int horizontalRayCount = 4;
     public int verticalRayCount = 4;
 
@@ -209,6 +210,25 @@ public class Controller2D : MonoBehaviour {
 
             // Draw our collision detection rays so we can see them for debugging
             Debug.DrawRay(rayOrigin, Vector2.up * directionY *rayLength, Color.red);
+        }
+
+        // Fix problem with player stopping at an intersection of angles
+        if (collisions.climbingSlope)
+        {
+            // Get directionX
+            float directionX = Mathf.Sign(velocity.x);
+
+            // Set our rayLength
+            rayLength = Mathf.Abs(velocity.x) + skinWidth;
+
+            Vector2 rayOrigin = ((directionX == -1) ? raycastOrigins.bottomLeft : raycastOrigins.bottomRight) + Vector2.up * velocity.y;
+            RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * directionX, rayLength, collisionMask);
+
+            // If we hit something
+            if(hit)
+            {
+                float slopeAngle = Vector2.Angle(hit.normal,Vector2.up); 
+            }
         }
     }
 
