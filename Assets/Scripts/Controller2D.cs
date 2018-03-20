@@ -29,6 +29,9 @@ public class Controller2D : MonoBehaviour {
         public bool left;
         public bool right;
         public bool climbingSlope;
+        public bool descendingSlope;
+
+        public Vector3 velocityOld;
 
         public float slopeAngle, slopeAngleOld;
 
@@ -40,6 +43,7 @@ public class Controller2D : MonoBehaviour {
             left = false;
             right = false;
             climbingSlope = false;
+            descendingSlope = false;
             slopeAngleOld = slopeAngle;
             slopeAngle = 0;
         }
@@ -77,6 +81,8 @@ public class Controller2D : MonoBehaviour {
         // Call our functions
         UpdateRaycastOrigins();
         collisions.Reset();
+
+       collisions.velocityOld = velocity;
 
         // If our velocity is less than 0, i.e we are descending a slope, call our descendSlope function
         if(velocity.y<0)
@@ -134,6 +140,12 @@ public class Controller2D : MonoBehaviour {
                 // Debug
                 if(i==0 & slopeAngle <= maxClimbAngle)
                 {
+                    if(collisions.descendingSlope)
+                    {
+                        collisions.descendingSlope = false;
+                        velocity = collisions.velocityOld;
+                    }
+
                     float distanceToSlopeStart = 0;
                     
                     // If we're trying to climb a new slope
@@ -303,6 +315,13 @@ public class Controller2D : MonoBehaviour {
                     if (hit.distance - skinWidth <= Mathf.Tan(slopeAngle * Mathf.Deg2Rad) *  Mathf.Abs(velocity.x))
                     {
                         float moveDistance = Mathf.Abs(velocity.x);
+                        float descendVelocityY = Mathf.Sign(slopeAngle * Mathf.Deg2Rad) * moveDistance;
+                        velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(velocity.x);
+                        velocity.y -= descendVelocityY;
+
+                        collisions.slopeAngle = slopeAngle;
+                        collisions.descendingSlope = true;
+                        collisions.below = true;
                     }
                 }
             }
