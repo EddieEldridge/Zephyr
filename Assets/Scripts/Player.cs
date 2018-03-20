@@ -10,7 +10,7 @@ public class Player : MonoBehaviour {
     // Variables
     public float jumpHeight =4;
     public float timeToJumpApex =.4f;
-    float moveSpeed = 25;
+    float moveSpeed = 50;
 
     float accelerationTimeAirborne =.2f;
     float accelerationTimeGrounded =.1f;

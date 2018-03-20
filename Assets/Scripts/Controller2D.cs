@@ -228,6 +228,12 @@ public class Controller2D : MonoBehaviour {
             if(hit)
             {
                 float slopeAngle = Vector2.Angle(hit.normal,Vector2.up); 
+
+                if(slopeAngle != collisions.slopeAngle)
+                {
+                    velocity.x = (hit.distance - skinWidth) * directionX;
+                    collisions.slopeAngle = slopeAngle;
+                }
             }
         }
     }
