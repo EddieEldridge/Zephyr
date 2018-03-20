@@ -18,7 +18,8 @@ public class Controller2D : MonoBehaviour {
     float verticalRaySpacing;
 
     // Highest angle the player can climb
-    float maxClimbAngle=80;
+    float maxClimbAngle = 80;
+    float maxDescendAngle = 75;
 
     // Structs
     public struct collisionInfo
@@ -76,6 +77,12 @@ public class Controller2D : MonoBehaviour {
         // Call our functions
         UpdateRaycastOrigins();
         collisions.Reset();
+
+        // If our velocity is less than 0, i.e we are descending a slope, call our descendSlope function
+        if(velocity.y<0)
+        {
+            descendSlope(ref velocity);
+        }
 
         // Only need to check for horizontal collisions if our x velocity is not equal to zero
         if(velocity.x!=0)
@@ -271,6 +278,39 @@ public class Controller2D : MonoBehaviour {
 
     }
     
+    // Function for descending slopes smoothly
+    void descendSlope(ref Vector3 velocity)
+    {
+        float directionX = Mathf.Sign(velocity.x);
+
+        // Cast a ray downwards
+        // If we are moving right, start at the bottom right corner and if we are moving left, start at the bottom left 
+        Vector2 rayOrigin = (directionX == -1) ? raycastOrigins.bottomRight : raycastOrigins.bottomLeft;
+        RaycastHit2D hit = Physics2D.Raycast(rayOrigin, -Vector2.up, Mathf.Infinity, collisionMask);
+
+        // If we hit something
+        if(hit)
+        {
+            // Get the slope angle
+            float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
+
+            // If we have a flat surface
+            if(slopeAngle != 0 && slopeAngle <= maxDescendAngle)
+            {
+                if(Mathf.Sign(hit.normal.x) == directionX)
+                {
+                    // If the distance from the player to the slope
+                    if (hit.distance - skinWidth <= Mathf.Tan(slopeAngle * Mathf.Deg2Rad) *  Mathf.Abs(velocity.x))
+                    {
+                        float moveDistance = Mathf.Abs(velocity.x);
+                    }
+                }
+            }
+        }
+            
+
+    }
+
     // Function for climbing slopes without having to jump
     void climbSlope(ref Vector3 velocity, float slopeAngle)
     {
