@@ -26,7 +26,7 @@ public class RaycastController : MonoBehaviour {
     public RaycastOrigins raycastOrigins;
 
     // Start method
-    public void Start()
+    public virtual void Start()
     {
         collider = GetComponent<BoxCollider2D>();
 
