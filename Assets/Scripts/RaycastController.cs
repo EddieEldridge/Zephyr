@@ -20,7 +20,6 @@ public class RaycastController : MonoBehaviour {
     // Collision detection mask for our player
     public LayerMask collisionMask;
 
-    [HideInInspector]
     BoxCollider2D collider;
 
     public RaycastOrigins raycastOrigins;

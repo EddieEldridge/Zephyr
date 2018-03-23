@@ -8,12 +8,12 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     // Variables
-    public float jumpHeight =20;
-    public float timeToJumpApex =.10f;
-    float moveSpeed = 100;
+    public float jumpHeight =.35f;
+    public float timeToJumpApex =.4f;
+    float moveSpeed = 10;
 
-    float accelerationTimeAirborne =.14f;
-    float accelerationTimeGrounded =.16f;
+    float accelerationTimeAirborne =.2f;
+    float accelerationTimeGrounded =.1f;
 
     float gravity;
     float jumpVelocity;
@@ -28,7 +28,7 @@ public class Player : MonoBehaviour {
         controller = GetComponent<Controller2D>();
 
         // Calculations for our gravity
-        gravity = -(jumpHeight * 2) /Mathf.Pow (timeToJumpApex, 2);
+        gravity = -(2 * jumpHeight) /Mathf.Pow (timeToJumpApex, 2);
 
         // Calculations for our jumpVelocity
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;

@@ -124,7 +124,43 @@ public class PlatformController : RaycastController
             }
         }
 
+        // Passenger on top of horizontally or downward moving platform
+        if (directionY == -1 || velocity.y == 0 && velocity.x != 0)
+        {
+            float rayLength = skinWidth * 2;
 
+            // For loop to draw our vertical rays
+            for (int i = 0; i < verticalRayCount; i++)
+            {
+                // If moving down, set raycastOrigins to bottomLeft
+                // otherwise, set raycastOrigins to topLeft
+                Vector2 rayOrigin =raycastOrigins.topLeft + Vector2.right * (verticalRaySpacing * i);
+      
+                // Perform a raycast from our rayOrigin to the dire
+                RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up, rayLength, passengerMask);
+
+                // If hit (i.e there's a passenger on the platform)
+                if (hit)
+                {
+                    // If the passenger isn't in the hashSet of players that have already mvoed this frame
+                    if (!movedPassengers.Contains(hit.transform))
+                    {
+                        // Add the passenger to the hashSet 'movedPassengers'
+                        movedPassengers.Add(hit.transform);
+
+                        // Variables to move our passenger with our platform
+                        float pushY = velocity.y;
+                        float pushX = velocity.x;
+
+                        // Move the player
+                        hit.transform.Translate(new Vector3(pushX, pushY));
+
+                    }
+
+                }
+
+            }
+        }
     }
 
 }
