@@ -5,9 +5,13 @@ using UnityEngine;
 public class RaycastController : MonoBehaviour {
 
     // Variables
-    const float skinWidth = .015f;
-    float horizontalRaySpacing;
-    float verticalRaySpacing;
+    public const float skinWidth = .015f;
+
+    // Hide below variables in UnityInspector as they are being calculated below and shouldn't be set
+    [HideInInspector]
+    public float horizontalRaySpacing;
+    [HideInInspector]
+    public float verticalRaySpacing;
 
     // Number of collision detection rays cast from each side of the player
     public int horizontalRayCount = 5;
@@ -16,11 +20,13 @@ public class RaycastController : MonoBehaviour {
     // Collision detection mask for our player
     public LayerMask collisionMask;
 
+    [HideInInspector]
     BoxCollider2D collider;
-    RaycastOrigins raycastOrigins;
+
+    public RaycastOrigins raycastOrigins;
 
     // Start method
-    private void Start()
+    public void Start()
     {
         collider = GetComponent<BoxCollider2D>();
 
@@ -29,14 +35,14 @@ public class RaycastController : MonoBehaviour {
     }
 
     // struct to store our Raycast vectors(Collision detection rays)
-    struct RaycastOrigins
+    public struct RaycastOrigins
     {
         public Vector2 topLeft, topRight;
         public Vector2 bottomLeft, bottomRight;
     }
 
     // Method to update our rayCasts
-    void UpdateRaycastOrigins()
+    public void UpdateRaycastOrigins()
     {
         Bounds bounds = collider.bounds;
 
@@ -51,7 +57,7 @@ public class RaycastController : MonoBehaviour {
     }
 
     // Calculations for unit collision rays
-    void CalculateRaySpacing()
+    public void CalculateRaySpacing()
     {
         Bounds bounds = collider.bounds;
 
