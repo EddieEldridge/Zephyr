@@ -8,12 +8,12 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     // Variables
-    public float jumpHeight =2;
-    public float timeToJumpApex =.2f;
-    float moveSpeed = 75;
+    public float jumpHeight =20;
+    public float timeToJumpApex =.10f;
+    float moveSpeed = 100;
 
-    float accelerationTimeAirborne =.5f;
-    float accelerationTimeGrounded =.4f;
+    float accelerationTimeAirborne =.14f;
+    float accelerationTimeGrounded =.16f;
 
     float gravity;
     float jumpVelocity;
