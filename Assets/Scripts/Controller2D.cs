@@ -5,18 +5,9 @@ using UnityEngine;
 // Set requiredComponents
 [RequireComponent(typeof(BoxCollider2D))]
 
-public class Controller2D : MonoBehaviour {
-
-    // Variables
-    const float skinWidth = .015f;
-
-    // Number of collision detection rays cast from each side of the player
-    public int horizontalRayCount = 5;
-    public int verticalRayCount = 5;
-
-    float horizontalRaySpacing;
-    float verticalRaySpacing;
-
+// Extend our RaycastController class to our Controller2D class
+public class Controller2D : RaycastController {
+  
     // Highest angle the player can climb
     float maxClimbAngle = 80;
     float maxDescendAngle = 75;
@@ -49,25 +40,8 @@ public class Controller2D : MonoBehaviour {
         }
     }
 
-   
-    // Collision detection mask for our player
-    public LayerMask collisionMask;
-
-    BoxCollider2D collider;
-    RaycastOrigins raycastOrigins;
-
     // Reference to our collisionInfo struct
     public collisionInfo collisions;
-
-    private void Start()
-    {
-        collider = GetComponent<BoxCollider2D>();
-
-        // Call our functions
-        CalculateRaySpacing();
-    }
-
-    
 
     // Function to move our player
     public void Move(Vector3 velocity)
