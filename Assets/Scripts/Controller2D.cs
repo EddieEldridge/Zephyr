@@ -43,6 +43,13 @@ public class Controller2D : RaycastController {
     // Reference to our collisionInfo struct
     public collisionInfo collisions;
 
+    // Ovveride our start method in our RaycastController
+    public override void Start()
+    {
+        // Run the start method in our RaycastController
+        base.Start();
+    }
+
     // Function to move our player
     public void Move(Vector3 velocity)
     {
