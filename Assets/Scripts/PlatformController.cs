@@ -20,15 +20,24 @@ public class PlatformController : RaycastController
     // Update is called once per frame
     void Update()
     {
+        // Call our functions
+        UpdateRaycastOrigins();
 
         // Smoothly moves around our platform when we change its x and y values in the Unity inspector
         Vector3 velocity = move * Time.deltaTime;
+
+        MovePassengers(velocity);
+
         transform.Translate(velocity);
     }
 
     // Function to control movement of 'passengers' (i.e players standing on the moving platform)
     void MovePassengers(Vector3 velocity)
     {
+        // Create hashSet of passengers that have already moved this frame to prevent weird issues occuring if there are multiple passengers on one platform
+        // We use a hashSet as they are fast to add to and fast to check if certain things are contained withing them
+        HashSet<Transform> movedPassengers = new HashSet<Transform>();
+
         // Variables
         float directionX = Mathf.Sign(velocity.x);
         float directionY = Mathf.Sign(velocity.y);
@@ -53,12 +62,20 @@ public class PlatformController : RaycastController
                 // If hit (i.e there's a passenger on the platform)
                 if (hit)
                 {
-                    // Variables to move our passenger with our platform
-                    float pushY = velocity.y - (hit.distance - skinWidth) * directionY;
-                    float pushX = (directionY == 1) ? velocity.x : 0;
+                    // If the passenger isn't in the hashSet of players that have already mvoed this frame
+                    if (!movedPassengers.Contains(hit.transform))
+                    {
+                        // Add the passenger to the hashSet 'movedPassengers'
+                        movedPassengers.Add(hit.transform);
 
-                    // Move the player
-                    hit.transform.Translate(new Vector3(pushX, pushY));
+                        // Variables to move our passenger with our platform
+                        float pushY = velocity.y - (hit.distance - skinWidth) * directionY;
+                        float pushX = (directionY == 1) ? velocity.x : 0;
+
+                        // Move the player
+                        hit.transform.Translate(new Vector3(pushX, pushY));
+
+                    }
 
                 }
 
