@@ -11,11 +11,8 @@ public class PlatformController : RaycastController
     // Vector to move our platform
     public Vector3 move;
 
-    // Use this for initialization
-    public override void Start()
-    {
-        base.Start();
-    }
+    // Dictionary to reduced the amount of getComponent calls which consume processing power
+    Dictionary<Transform.Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
 
     // Lists
     List <PassengerMovement> passengerMovement;
@@ -37,6 +34,13 @@ public class PlatformController : RaycastController
             moveBeforePlatform = _moveBeforePlatform;
         }
     }
+
+    // Use this for initialization
+    public override void Start()
+    {
+        base.Start();
+    }
+
 
 
     // Update is called once per frame
@@ -142,7 +146,7 @@ public class PlatformController : RaycastController
                         movedPassengers.Add(hit.transform);
 
                         // Variables to move our passenger with our platform
-                        float pushY = 0;
+                        float pushY = -skinWidth;
                         float pushX = velocity.x - (hit.distance - skinWidth) * directionX;
 
                            // Add to our passengerMovement list
@@ -195,12 +199,18 @@ public class PlatformController : RaycastController
 
     void MovePassengers(bool beforeMovePlatform)   
     {
-       // forEach loop
-       forEach(PassengerMovement passenger in passengerMovement)
-       {
+        
+        foreach(PassengerMovement passenger in passengerMovement)
+       {    
+           // Check to see if our passenger is contained in our dictionary
+           if(!passengerDictionary.ContainsKey(passenger.transform))
+           {
+               passengerDictionary.Add(passenger.transform, passenger.transform.GetComponent<Controller2D>());
+           }
+
            if(passenger.moveBeforePlatform == beforeMovePlatform)
            {
-                passenger.transform.GetComponent<Controller2D>().Move(passenger.velocity);
+               passengerDictionary[passenger.transform].Move(passenger.velocity, passenger.standingOnPlatform);
            }
        }
 

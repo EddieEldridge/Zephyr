@@ -51,7 +51,7 @@ public class Controller2D : RaycastController {
     }
 
     // Function to move our player
-    public void Move(Vector3 velocity)
+    public void Move(Vector3 velocity, bool standingOnPlatform = false)
     {
         // Call our functions
         UpdateRaycastOrigins();
@@ -77,6 +77,11 @@ public class Controller2D : RaycastController {
         {
             // Reference the velocity variable from our VerticalCollisions function 
             verticalCollisions(ref velocity);
+        }
+
+        if(standingOnPlatform=true)
+        {
+            collisions.below=true; 
         }
 
         transform.Translate(velocity);
@@ -108,7 +113,13 @@ public class Controller2D : RaycastController {
             // Function to determine if the player is hit or not
             // i.e if the ray's cast by our player collide with something
             if (hit)
-            {
+            {   
+                // Fix player movement when they are inside a platform
+                if (hit.distance==0)
+                {
+                    continue;
+                }
+
                 // Get the angle of surface we hit for climbing slopes
                 float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
