@@ -18,10 +18,10 @@ public class PlatformController : RaycastController
     }
 
     // Lists
-    List <passengerMovement> passengerMovement;
+    List <PassengerMovement> passengerMovement;
 
     // Structs 
-    struct passengerMovement
+    struct PassengerMovement
     {   
         // Variables
         public Transform transform;
@@ -61,10 +61,13 @@ public class PlatformController : RaycastController
 
     // Function to control movement of 'passengers' (i.e players standing on the moving platform)
     void CalculatePassengerMovement(Vector3 velocity)
-    {
+    {   
         // Create hashSet of passengers that have already moved this frame to prevent weird issues occuring if there are multiple passengers on one platform
         // We use a hashSet as they are fast to add to and fast to check if certain things are contained withing them
         HashSet<Transform> movedPassengers = new HashSet<Transform>();
+
+        // Create a new instance of our passengerMovement list
+        passengerMovement = new List<PassengerMovement>();
 
         // Variables
         float directionX = Mathf.Sign(velocity.x);
@@ -100,9 +103,8 @@ public class PlatformController : RaycastController
                         float pushY = velocity.y - (hit.distance - skinWidth) * directionY;
                         float pushX = (directionY == 1) ? velocity.x : 0;
 
-                        // Move the player
-                        hit.transform.Translate(new Vector3(pushX, pushY));
-
+                        // Add to our passengerMovement list
+                        passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), directionY==1, true));
                     }
 
                 }
@@ -143,8 +145,8 @@ public class PlatformController : RaycastController
                         float pushY = 0;
                         float pushX = velocity.x - (hit.distance - skinWidth) * directionX;
 
-                        // Move the player
-                        hit.transform.Translate(new Vector3(pushX, pushY));
+                           // Add to our passengerMovement list
+                        passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), false, true));
 
                     }
 
@@ -180,8 +182,8 @@ public class PlatformController : RaycastController
                         float pushY = velocity.y;
                         float pushX = velocity.x;
 
-                        // Move the player
-                        hit.transform.Translate(new Vector3(pushX, pushY));
+                        // Add to our passengerMovement list
+                        passengerMovement.Add(new PassengerMovement(hit.transform, new Vector3(pushX, pushY), true, false));
 
                     }
 
@@ -193,8 +195,14 @@ public class PlatformController : RaycastController
 
     void MovePassengers(bool beforeMovePlatform)   
     {
-       
-
+       // forEach loop
+       forEach(PassengerMovement passenger in passengerMovement)
+       {
+           if(passenger.moveBeforePlatform == beforeMovePlatform)
+           {
+                passenger.transform.GetComponent<Controller2D>().Move(passenger.velocity);
+           }
+       }
 
     }
 

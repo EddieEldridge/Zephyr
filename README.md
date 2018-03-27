@@ -1,7 +1,7 @@
 ![zephyrheader](https://user-images.githubusercontent.com/22448079/37422785-f52dbe36-27b3-11e8-888b-44bebfff9cd3.png)
 
 ## Description
-The aim of this project is to develop a game in Unity written using mainly C# scripts.
+The aim of this project is to develop a fast paced 2D platforming game in Unity, written using mainly C# scripts.
 
 ## Developers
 Edward Eldridge (G00337490)
@@ -20,7 +20,7 @@ The program will be designed using the Unity editor along with Visual Studio.
 - Unity 
 - C#
 - Adobe Photoshop
-
+- Audacity
 
 ## Links
 
