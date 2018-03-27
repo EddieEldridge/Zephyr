@@ -15,7 +15,7 @@ public class RaycastController : MonoBehaviour {
 
     // Number of collision detection rays cast from each side of the player
     public int horizontalRayCount = 5;
-    public int verticalRayCount = 5;
+    public int verticalRayCount = 10;
 
     // Collision detection mask for our player
     public LayerMask collisionMask;

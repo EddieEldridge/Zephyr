@@ -17,6 +17,28 @@ public class PlatformController : RaycastController
         base.Start();
     }
 
+    // Lists
+    List <passengerMovement> passengerMovement;
+
+    // Structs 
+    struct passengerMovement
+    {   
+        // Variables
+        public Transform transform;
+        public Vector3 velocity;
+        public bool standingOnPlatform;
+        public bool moveBeforePlatform;
+
+        public PassengerMovement(Transform _transform, Vector3 _velocity, bool _standingOnPlatform, bool _moveBeforePlatform)
+        {
+            transform = _transform;
+            velocity = _velocity;
+            standingOnPlatform = _standingOnPlatform;
+            moveBeforePlatform = _moveBeforePlatform;
+        }
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -26,13 +48,19 @@ public class PlatformController : RaycastController
         // Smoothly moves around our platform when we change its x and y values in the Unity inspector
         Vector3 velocity = move * Time.deltaTime;
 
-        MovePassengers(velocity);
+        CalculatePassengerMovement(velocity);
+
+         // Set movePassengers to be true before we move the player
+        MovePassengers(true);
 
         transform.Translate(velocity);
+
+        // Set movePassengers to be true before we move the player
+        MovePassengers(false);
     }
 
     // Function to control movement of 'passengers' (i.e players standing on the moving platform)
-    void MovePassengers(Vector3 velocity)
+    void CalculatePassengerMovement(Vector3 velocity)
     {
         // Create hashSet of passengers that have already moved this frame to prevent weird issues occuring if there are multiple passengers on one platform
         // We use a hashSet as they are fast to add to and fast to check if certain things are contained withing them
@@ -161,6 +189,13 @@ public class PlatformController : RaycastController
 
             }
         }
+    }
+
+    void MovePassengers(bool beforeMovePlatform)   
+    {
+       
+
+
     }
 
 }
