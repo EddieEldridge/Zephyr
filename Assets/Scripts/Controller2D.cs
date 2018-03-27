@@ -10,7 +10,7 @@ public class Controller2D : RaycastController {
   
     // Highest angle the player can climb
     float maxClimbAngle = 80;
-    float maxDescendAngle = 75;
+    float maxDescendAngle = 80;
 
     // Structs
     public struct collisionInfo
@@ -78,13 +78,14 @@ public class Controller2D : RaycastController {
             // Reference the velocity variable from our VerticalCollisions function 
             verticalCollisions(ref velocity);
         }
+        
+             transform.Translate(velocity);
 
-        if(standingOnPlatform=true)
+        if(standingOnPlatform)
         {
             collisions.below=true; 
         }
 
-        transform.Translate(velocity);
     }
 
     // Function to draw our vertical collision detection rays 
@@ -142,7 +143,7 @@ public class Controller2D : RaycastController {
                     }
 
                     climbSlope(ref velocity, slopeAngle);
-                    velocity.x = (hit.distance - skinWidth) * directionX;
+                    velocity.x += distanceToSlopeStart  * directionX;
                 }
 
                 if (!collisions.climbingSlope || slopeAngle > maxClimbAngle)
@@ -193,6 +194,10 @@ public class Controller2D : RaycastController {
             // Perform a raycast from our rayOrigin to the dire
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
 
+            
+            // Draw our collision detection rays so we can see them for debugging
+            Debug.DrawRay(rayOrigin, Vector2.up * directionY *rayLength, Color.red);
+            
             // Function to determine if the player is hit or not
             // i.e if the ray's cast by our player collide with something
             if(hit)
@@ -213,8 +218,6 @@ public class Controller2D : RaycastController {
                 collisions.above = directionY == 1;
             }
 
-            // Draw our collision detection rays so we can see them for debugging
-            Debug.DrawRay(rayOrigin, Vector2.up * directionY *rayLength, Color.red);
         }
 
         // Fix problem with player stopping at an intersection of angles
@@ -268,8 +271,8 @@ public class Controller2D : RaycastController {
                     if (hit.distance - skinWidth <= Mathf.Tan(slopeAngle * Mathf.Deg2Rad) *  Mathf.Abs(velocity.x))
                     {
                         float moveDistance = Mathf.Abs(velocity.x);
-                        float descendVelocityY = Mathf.Sign(slopeAngle * Mathf.Deg2Rad) * moveDistance;
-                        velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(velocity.x);
+                        float descendVelocityY = Mathf.Sin (slopeAngle * Mathf.Deg2Rad) * moveDistance;
+                        velocity.x = Mathf.Cos (slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign (velocity.x);
                         velocity.y -= descendVelocityY;
 
                         collisions.slopeAngle = slopeAngle;
@@ -289,23 +292,15 @@ public class Controller2D : RaycastController {
         // Assign moveDistance to velocity.x in a positive value (Mathf.Abs)
         float moveDistance = Mathf.Abs(velocity.x);
 
-        float climbVelocityY = Mathf.Sign(slopeAngle * Mathf.Deg2Rad) * moveDistance;
+        float climbVelocityY = Mathf.Sin(slopeAngle * Mathf.Deg2Rad) * moveDistance;
 
         // Jumping on slope
-        if (velocity.y >= climbVelocityY)
-        {
-            // Debug
-            print("Jumping on slope");
-        }
-        else
-        {
-            velocity.y = climbVelocityY;
-            velocity.x = Mathf.Cos(slopeAngle * Mathf.Deg2Rad) * Mathf.Sign(velocity.x);
-
-            // Enables player to jump when they are on the slope
-            collisions.below = true;
-            collisions.climbingSlope = true;
-            collisions.slopeAngle = slopeAngle; 
-        }
+		if (velocity.y <= climbVelocityY) {
+			velocity.y = climbVelocityY;
+			velocity.x = Mathf.Cos (slopeAngle * Mathf.Deg2Rad) * moveDistance * Mathf.Sign (velocity.x);
+			collisions.below = true;
+			collisions.climbingSlope = true;
+			collisions.slopeAngle = slopeAngle;
+		}
     }
 }

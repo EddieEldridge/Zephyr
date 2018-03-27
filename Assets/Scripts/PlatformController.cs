@@ -12,7 +12,7 @@ public class PlatformController : RaycastController
     public Vector3 move;
 
     // Dictionary to reduced the amount of getComponent calls which consume processing power
-    Dictionary<Transform.Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
+    Dictionary<Transform,Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
 
     // Lists
     List <PassengerMovement> passengerMovement;
