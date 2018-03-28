@@ -1,26 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI.Text;
+using UnityEngine.UI;
 
 public class DistanceTravelled : MonoBehaviour 
 {
 
 	// Variables
 	private Vector3 startPosition;
-
-	// Setters and Getters
-	public int score 
-	{
-        get;
-        private set;
-    }
- 
-    public int bestScore
-	{
-        get;
-        private set;
-    }
+	public Text scoreText;
+	public int score;
+	public int highScore;
    	
 	// Functions
     void Awake()
@@ -28,11 +18,17 @@ public class DistanceTravelled : MonoBehaviour
         startPosition = transform.position;
         bestScore = 0;
     }
+
+	void Start ()
+	{
+		displayText();
+	}
  
     void Update() 
 	{
         score = Mathf.RoundToInt(Mathf.Abs(transform.position.x - startPosition.x));
         bestScore = Mathf.Max(score, bestScore);
+		score++;
     }
  
     public void OnGameOver() 
@@ -42,7 +38,7 @@ public class DistanceTravelled : MonoBehaviour
 
 	void displayText() 
 	{
-		myText.text = "This is my sample text";
+		scoreText.text = "Distance Travelled: " + score.ToString();
 	}
 
 }
