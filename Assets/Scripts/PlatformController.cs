@@ -14,11 +14,17 @@ public class PlatformController : RaycastController
     // Dictionary to reduced the amount of getComponent calls which consume processing power
     Dictionary<Transform,Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
 
+    // Variables for our platform movement calculations
+    public float speed;
+    int fromWayPointIndex;
+    float percentBetweenWaypoints;
+
     // Lists
     List <PassengerMovement> passengerMovement;
 
     // Arrays
     public Vector3 [] localWaypoints;
+    Vector3[] globalWaypoints;
 
     // Structs 
     struct PassengerMovement
@@ -42,6 +48,13 @@ public class PlatformController : RaycastController
     public override void Start()
     {
         base.Start();
+
+        globalWaypoints = new Vector3[localWaypoints.Length];
+
+        for (int i=0; i<localWaypoints.Length; i++)
+        {
+            globalWaypoints[i] = localWaypoints[i] + transform.position;
+        }
     }
 
 
@@ -53,7 +66,7 @@ public class PlatformController : RaycastController
         UpdateRaycastOrigins();
 
         // Smoothly moves around our platform when we change its x and y values in the Unity inspector
-        Vector3 velocity = move * Time.deltaTime;
+        Vector3 velocity = CalculatePlatformMovement();
 
         CalculatePassengerMovement(velocity);
 
@@ -64,6 +77,22 @@ public class PlatformController : RaycastController
 
         // Set movePassengers to be true before we move the player
         MovePassengers(false);
+    }
+
+    // Function to calculate the movement of the moving platforms and return it to our velocity above
+    Vector3 CalculatePlatformMovement()
+    {
+        int toWayPointIndex = fromWayPointIndex + 1;
+
+        float distanceBetweenWaypoints = Vector3.Distance(globalWaypoints[fromWayPointIndex], globalWaypoints[toWayPointIndex]);
+
+        // Further away the waypoints are the faster the platform will move
+        // i.e relative speed based on distance
+        percentBetweenWaypoints += Time.deltaTime + speed/distanceBetweenWaypoints;
+
+        Vector3 newPos = Vector3.Lerp(globalWaypoints[fromWayPointIndex], globalWaypoints[toWayPointIndex], percentBetweenWaypoints);
+
+        return newPos - transform.position;
     }
 
     // Function to control movement of 'passengers' (i.e players standing on the moving platform)
@@ -233,7 +262,7 @@ public class PlatformController : RaycastController
             // Loop through all of our waypoints
             for(int i=0; i < localWaypoints.Length; i++)
             {
-                Vector3 globalWaypointPos = localWaypoints[i] + transform.position;
+                Vector3 globalWaypointPos = (Application.isPlaying)?globalWaypoints[i]:localWaypoints[i] + transform.position;
 
                 // Draw a cross for our waypoints
                 Gizmos.DrawLine(globalWaypointPos - Vector3.up * size, globalWaypointPos + Vector3.up * size);
