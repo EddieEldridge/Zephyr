@@ -92,6 +92,20 @@ public class PlatformController : RaycastController
 
         Vector3 newPos = Vector3.Lerp(globalWaypoints[fromWayPointIndex], globalWaypoints[toWayPointIndex], percentBetweenWaypoints);
 
+        if(percentBetweenWaypoints >=1)
+        {
+            percentBetweenWaypoints = 0;
+            fromWayPointIndex++;
+            
+            if(fromWayPointIndex >= globalWaypoints.Length -1)
+            {
+                fromWayPointIndex = 0;
+
+                // Reverse our array to send our platform back in the opposite direction
+                System.Array.Reverse(globalWaypoints);
+            }
+        }
+
         return newPos - transform.position;
     }
 
