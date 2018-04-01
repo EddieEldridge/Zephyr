@@ -8,14 +8,12 @@ public class PlatformController : RaycastController
     // Layer masks
     public LayerMask passengerMask;
 
-    // Vector to move our platform
-    public Vector3 move;
-
     // Dictionary to reduced the amount of getComponent calls which consume processing power
     Dictionary<Transform,Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
 
     // Variables for our platform movement calculations
     public float speed;
+    public bool cyclic;
     int fromWayPointIndex;
     float percentBetweenWaypoints;
 
@@ -23,7 +21,7 @@ public class PlatformController : RaycastController
     List <PassengerMovement> passengerMovement;
 
     // Arrays
-    public Vector3 [] localWaypoints;
+    public Vector3[] localWaypoints;
     Vector3[] globalWaypoints;
 
     // Structs 
@@ -82,13 +80,16 @@ public class PlatformController : RaycastController
     // Function to calculate the movement of the moving platforms and return it to our velocity above
     Vector3 CalculatePlatformMovement()
     {
-        int toWayPointIndex = fromWayPointIndex + 1;
+        fromWayPointIndex %= globalWaypoints.Length;
 
-        float distanceBetweenWaypoints = Vector3.Distance(globalWaypoints[fromWayPointIndex], globalWaypoints[toWayPointIndex]);
+        int toWayPointIndex = (fromWayPointIndex + 1) % globalWaypoints.Length;
+
+        // Get the distance between the two waypoints
+        float distanceBetweenWaypoints = Vector3.Distance(globalWaypoints[fromWayPointIndex], globalWaypoints[fromWayPointIndex]);
 
         // Further away the waypoints are the faster the platform will move
         // i.e relative speed based on distance
-        percentBetweenWaypoints += Time.deltaTime + speed/distanceBetweenWaypoints;
+        percentBetweenWaypoints += Time.deltaTime * (speed/distanceBetweenWaypoints);
 
         Vector3 newPos = Vector3.Lerp(globalWaypoints[fromWayPointIndex], globalWaypoints[toWayPointIndex], percentBetweenWaypoints);
 
@@ -96,14 +97,19 @@ public class PlatformController : RaycastController
         {
             percentBetweenWaypoints = 0;
             fromWayPointIndex++;
-            
-            if(fromWayPointIndex >= globalWaypoints.Length -1)
+           
+            if(!cyclic)
             {
-                fromWayPointIndex = 0;
+                // When we reach the end of the wayPoints array 
+                if (fromWayPointIndex >= globalWaypoints.Length - 1)
+                {
+                    fromWayPointIndex = 0;
 
-                // Reverse our array to send our platform back in the opposite direction
-                System.Array.Reverse(globalWaypoints);
+                    // Reverse our array to send our platform back in the opposite direction
+                    System.Array.Reverse(globalWaypoints);
+                }
             }
+        
         }
 
         return newPos - transform.position;
@@ -276,7 +282,7 @@ public class PlatformController : RaycastController
             // Loop through all of our waypoints
             for(int i=0; i < localWaypoints.Length; i++)
             {
-                Vector3 globalWaypointPos = (Application.isPlaying)?globalWaypoints[i]:localWaypoints[i] + transform.position;
+                Vector3 globalWaypointPos = (Application.isPlaying) ? globalWaypoints[i] : localWaypoints[i] + transform.position;
 
                 // Draw a cross for our waypoints
                 Gizmos.DrawLine(globalWaypointPos - Vector3.up * size, globalWaypointPos + Vector3.up * size);
