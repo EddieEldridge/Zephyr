@@ -21,6 +21,7 @@ public class Controller2D : RaycastController {
         public bool right;
         public bool climbingSlope;
         public bool descendingSlope;
+        public int faceDir;
 
         public Vector3 velocityOld;
 
@@ -48,6 +49,8 @@ public class Controller2D : RaycastController {
     {
         // Run the start method in our RaycastController
         base.Start();
+
+        collisions.faceDir = 1;
     }
 
     // Function to move our player
@@ -59,18 +62,20 @@ public class Controller2D : RaycastController {
 
        collisions.velocityOld = velocity;
 
+        if(velocity.x!=0)
+        {
+            // Invert our direction
+            collisions.faceDir = (int)Mathf.Sign(velocity.x);
+        }
+
         // If our velocity is less than 0, i.e we are descending a slope, call our descendSlope function
         if(velocity.y<0)
         {
             descendSlope(ref velocity);
         }
 
-        // Only need to check for horizontal collisions if our x velocity is not equal to zero
-        if(velocity.x!=0)
-        {
-            // Reference the velocity variable from our horizontalCollisions function 
-            horizontalColissions(ref velocity);
-        }
+        // Reference the velocity variable from our horizontalCollisions function 
+        horizontalColissions(ref velocity);
 
         // Only need to check for vertical collisions if our y velocity is not equal to zero
         if (velocity.y != 0)
@@ -93,8 +98,13 @@ public class Controller2D : RaycastController {
     void horizontalColissions(ref Vector3 velocity)
     {
         // If moving up directionY will be positive, if moving down directionY will be negative
-        float directionX = Mathf.Sign(velocity.x);
+        float directionX = collisions.faceDir;
         float rayLength = Mathf.Abs(velocity.x) + skinWidth;
+
+        if(Mathf.Abs(velocity.x) < skinWidth)
+        {
+            rayLength = 2*skinWidth;
+        }
 
         // For loop to draw our vertical rays
         for (int i = 0; i < horizontalRayCount; i++)
