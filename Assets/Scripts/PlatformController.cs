@@ -14,8 +14,15 @@ public class PlatformController : RaycastController
     // Variables for our platform movement calculations
     public float speed;
     public bool cyclic;
+    public float waitTime;
+
+    // Clamp our variable between 0 and 2
+    [Range(0,2)]
+    public float easeAmount;
+
     int fromWayPointIndex;
     float percentBetweenWaypoints;
+    float nextMoveTime;
 
     // Lists
     List <PassengerMovement> passengerMovement;
@@ -77,9 +84,24 @@ public class PlatformController : RaycastController
         MovePassengers(false);
     }
 
+    // Function to smooth our moving platforms
+    float Ease(float x)
+    {
+        float a = easeAmount + 1;
+
+        // Easing equation
+        return Mathf.Pow(x, a) / (Mathf.Pow(x,a) + Mathf.Pow(1-x,a));
+    }
+
     // Function to calculate the movement of the moving platforms and return it to our velocity above
     Vector3 CalculatePlatformMovement()
     {
+
+        if(Time.time <nextMoveTime)
+        {
+            return Vector3.zero;
+        }
+        
         fromWayPointIndex %= globalWaypoints.Length;
 
         int toWayPointIndex = (fromWayPointIndex + 1) % globalWaypoints.Length;
@@ -109,7 +131,7 @@ public class PlatformController : RaycastController
                     System.Array.Reverse(globalWaypoints);
                 }
             }
-        
+            nextMoveTime = Time.time + waitTime;
         }
 
         return newPos - transform.position;
