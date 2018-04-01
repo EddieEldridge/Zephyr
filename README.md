@@ -1,5 +1,4 @@
-![zephyrheader](https://user-images.githubusercontent.com/22448079/37422785-f52dbe36-27b3-11e8-888b-44bebfff9cd3.png)
-
+![zephyrlogo](https://user-images.githubusercontent.com/22448079/38176611-fe8cca78-35e9-11e8-8d6c-14091ba2fd11.png)
 ## Description
 The aim of this project is to develop a fast paced 2D platforming game in Unity, written using mainly C# scripts.
 
