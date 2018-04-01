@@ -47,6 +47,11 @@ public class Player : MonoBehaviour {
         if(controller.collisions.left || controller.collisions.right && !controller.collisions.below && velocity.y <0)
         {
             wallSliding = true;
+
+            if(velocity.y < -wallslideSpeedMax)
+            {
+                velocity.y = -wallslideSpeedMax;
+            }
         }
 
         // Prevent gravity from accumulating if the player is resting on a surface 
