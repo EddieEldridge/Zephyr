@@ -11,6 +11,9 @@ public class Player : MonoBehaviour {
     public float jumpHeight =4;
     public float timeToJumpApex =.4f;
 
+    public Vector2 wallJumpClimb;
+    public Vector2 wallJumpOff;
+    public Vector2 wallLeap;
     public float wallslideSpeedMax = 3;
 
     float moveSpeed = 6;
@@ -40,6 +43,11 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
+        // Setup horizontal unit collision
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        int wallDirX = (controller.collisions.left) ? -1 : 1;
+
         // Wall sliding
         bool wallSliding = false;
 
@@ -61,14 +69,43 @@ public class Player : MonoBehaviour {
             velocity.y = 0;
         }
 
-        // Setup horizontal unit collision
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
+       
         // Jumping!
         // If the player presses space, and there is a collision occuring below them (i.e they are standing on something)
-        if(Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
+        if(Input.GetKeyDown(KeyCode.Space))
         {
-            velocity.y = jumpVelocity;
+            // Wall jumping
+            if(wallSliding)
+            {
+                if (wallDirX == input.x)
+                {
+                    // Move away from wall
+                    velocity.x = -wallDirX * wallJumpClimb.x;
+
+                    velocity.y = wallJumpClimb.y;
+                }
+
+                else if (input.x == 0)
+                {
+                    velocity.x = -wallDirX * wallJumpOff.x;
+
+                    velocity.y = wallJumpOff.y;
+                }
+
+                else
+                {
+                    velocity.x = -wallDirX * wallLeap.x;
+
+                    velocity.y = wallLeap.y;
+                }
+            }
+
+            // Normal jump
+            if(controller.collisions.below)
+            {
+                velocity.y = jumpVelocity;
+            }
+           
         }
 
         // Smooth out animations
