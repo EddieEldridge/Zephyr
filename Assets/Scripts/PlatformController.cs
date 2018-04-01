@@ -17,6 +17,9 @@ public class PlatformController : RaycastController
     // Lists
     List <PassengerMovement> passengerMovement;
 
+    // Arrays
+    public Vector3 localWaypoints;
+
     // Structs 
     struct PassengerMovement
     {   
@@ -216,5 +219,23 @@ public class PlatformController : RaycastController
 
     }
 
+    // Function to draw our waypoints for our moving platforms
+    private void OnDrawGizmos()
+    {   
+        if(localWaypoints !=null)
+        {
+            // Set the color of our Gizmos to be red
+            Gizmos.color = Color.red;
+
+            // Define the size of our gizmos
+            float size = .3f;
+
+            // Loop through all of our waypoints
+            for(int i=0; i<localWaypoints.Length; i++)
+            {
+
+            }
+        }
+    }
 }
         
