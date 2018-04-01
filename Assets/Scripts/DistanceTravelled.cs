@@ -16,7 +16,7 @@ public class DistanceTravelled : MonoBehaviour
     void Awake()
 	 {
         startPosition = transform.position;
-        bestScore = 0;
+        highScore = 0;
     }
 
 	void Start ()
@@ -27,15 +27,10 @@ public class DistanceTravelled : MonoBehaviour
     void Update() 
 	{
         score = Mathf.RoundToInt(Mathf.Abs(transform.position.x - startPosition.x));
-        bestScore = Mathf.Max(score, bestScore);
+        highScore = Mathf.Max(score, highScore);
 		score++;
     }
  
-    public void OnGameOver() 
-	{
-        transform.position = startPosition;
-    }
-
 	void displayText() 
 	{
 		scoreText.text = "Distance Travelled: " + score.ToString();

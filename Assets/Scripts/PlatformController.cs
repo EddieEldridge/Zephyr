@@ -18,7 +18,7 @@ public class PlatformController : RaycastController
     List <PassengerMovement> passengerMovement;
 
     // Arrays
-    public Vector3 localWaypoints;
+    public Vector3 [] localWaypoints;
 
     // Structs 
     struct PassengerMovement
@@ -231,8 +231,13 @@ public class PlatformController : RaycastController
             float size = .3f;
 
             // Loop through all of our waypoints
-            for(int i=0; i<localWaypoints.Length; i++)
+            for(int i=0; i < localWaypoints.Length; i++)
             {
+                Vector3 globalWaypointPos = localWaypoints[i] + transform.position;
+
+                // Draw a cross for our waypoints
+                Gizmos.DrawLine(globalWaypointPos - Vector3.up * size, globalWaypointPos + Vector3.up * size);
+                Gizmos.DrawLine(globalWaypointPos - Vector3.left * size, globalWaypointPos + Vector3.left * size);
 
             }
         }
