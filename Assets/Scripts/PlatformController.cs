@@ -9,7 +9,7 @@ public class PlatformController : RaycastController
     public LayerMask passengerMask;
 
     // Dictionary to reduced the amount of getComponent calls which consume processing power
-    Dictionary<Transform,Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
+    Dictionary<Transform, Controller2D> passengerDictionary = new Dictionary<Transform, Controller2D>();
 
     // Variables for our platform movement calculations
     public float speed;
@@ -20,7 +20,7 @@ public class PlatformController : RaycastController
     [Range(0,2)]
     public float easeAmount;
 
-    int fromWayPointIndex;
+    int fromWaypointIndex;
     float percentBetweenWaypoints;
     float nextMoveTime;
 
@@ -97,35 +97,37 @@ public class PlatformController : RaycastController
     Vector3 CalculatePlatformMovement()
     {
 
-        if(Time.time <nextMoveTime)
+        if(Time.time < nextMoveTime)
         {
             return Vector3.zero;
         }
         
-        fromWayPointIndex %= globalWaypoints.Length;
+        fromWaypointIndex %= globalWaypoints.Length;
 
-        int toWayPointIndex = (fromWayPointIndex + 1) % globalWaypoints.Length;
+        int toWaypointIndex = (fromWaypointIndex + 1) % globalWaypoints.Length;
 
         // Get the distance between the two waypoints
-        float distanceBetweenWaypoints = Vector3.Distance(globalWaypoints[fromWayPointIndex], globalWaypoints[fromWayPointIndex]);
+        float distanceBetweenWaypoints = Vector3.Distance(globalWaypoints[fromWaypointIndex], globalWaypoints[toWaypointIndex]);
 
         // Further away the waypoints are the faster the platform will move
         // i.e relative speed based on distance
         percentBetweenWaypoints += Time.deltaTime * (speed/distanceBetweenWaypoints);
+        percentBetweenWaypoints = Mathf.Clamp01(percentBetweenWaypoints);
+        float easedPercentBetweenWaypoints = Ease(percentBetweenWaypoints);
 
-        Vector3 newPos = Vector3.Lerp(globalWaypoints[fromWayPointIndex], globalWaypoints[toWayPointIndex], percentBetweenWaypoints);
+        Vector3 newPos = Vector3.Lerp(globalWaypoints[fromWaypointIndex], globalWaypoints[toWaypointIndex], easedPercentBetweenWaypoints);
 
         if(percentBetweenWaypoints >=1)
         {
             percentBetweenWaypoints = 0;
-            fromWayPointIndex++;
+            fromWaypointIndex++;
            
             if(!cyclic)
             {
                 // When we reach the end of the wayPoints array 
-                if (fromWayPointIndex >= globalWaypoints.Length - 1)
+                if (fromWaypointIndex >= globalWaypoints.Length - 1)
                 {
-                    fromWayPointIndex = 0;
+                    fromWaypointIndex = 0;
 
                     // Reverse our array to send our platform back in the opposite direction
                     System.Array.Reverse(globalWaypoints);
