@@ -10,6 +10,9 @@ public class Player : MonoBehaviour {
     // Variables
     public float jumpHeight =4;
     public float timeToJumpApex =.4f;
+
+    public float wallslideSpeedMax = 3;
+
     float moveSpeed = 6;
 
     float accelerationTimeAirborne =.2f;
@@ -37,6 +40,15 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
+        // Wall sliding
+        bool wallSliding = false;
+
+        // Depending on what's around the player do the following
+        if(controller.collisions.left || controller.collisions.right && !controller.collisions.below && velocity.y <0)
+        {
+            wallSliding = true;
+        }
+
         // Prevent gravity from accumulating if the player is resting on a surface 
         if(controller.collisions.above || controller.collisions.below)
         {
