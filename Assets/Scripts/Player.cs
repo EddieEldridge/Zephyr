@@ -48,7 +48,8 @@ public class Player : MonoBehaviour {
         {
             wallSliding = true;
 
-            if(velocity.y < -wallslideSpeedMax)
+            // Set our downward velocity when on a wall
+            if (velocity.y < -wallslideSpeedMax)
             {
                 velocity.y = -wallslideSpeedMax;
             }
