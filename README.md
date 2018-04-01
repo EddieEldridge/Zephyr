@@ -7,7 +7,7 @@ The aim of this project is to develop a fast paced 2D platforming game in Unity,
 Edward Eldridge (G00337490)
 
 ## Program
-The actual game to be developed is a fast-paced 2D sidescrolling platformer built in the Unity engine using C# scripts and hand-made assets.
+The actual game to be developed is a fast-paced 2D sidescrolling platformer built in the Unity engine using C# scripts.
 
 ## Design
 The program will be designed using the Unity editor along with Visual Studio.
