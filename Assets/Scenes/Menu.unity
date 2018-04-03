@@ -147,8 +147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.200024, y: -1.1000061}
-  m_SizeDelta: {x: 384.36, y: 76.78}
+  m_AnchoredPosition: {x: 4.2, y: -2.97}
+  m_SizeDelta: {x: 376.3, y: 88.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &114048366
 MonoBehaviour:
@@ -997,7 +997,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 698696172}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &698696174
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1088,8 +1088,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.2000122, y: 82.899994}
-  m_SizeDelta: {x: 230.14, y: 71.72}
+  m_AnchoredPosition: {x: -9.8, y: 88.9}
+  m_SizeDelta: {x: 208.1, y: 77.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &777161698
 MonoBehaviour:
@@ -1594,8 +1594,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2, y: 0}
-  m_SizeDelta: {x: -25.14, y: 9.05}
+  m_AnchoredPosition: {x: -0.5, y: -3.5}
+  m_SizeDelta: {x: -20.1, y: 16.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1417187817
 MonoBehaviour:
@@ -1618,8 +1618,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: PLAY
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d62a573c923f5cb47b8ff65261033b90, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: d62a573c923f5cb47b8ff65261033b90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1662,7 +1662,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1
@@ -1784,7 +1784,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.2, y: -6.3}
+  m_AnchoredPosition: {x: 5, y: -4}
   m_SizeDelta: {x: 505.7, y: 326.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1605481393
@@ -1809,7 +1809,7 @@ GameObject:
   - component: {fileID: 1661567974}
   - component: {fileID: 1661567973}
   m_Layer: 5
-  m_Name: PlayText
+  m_Name: OptionsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1854,8 +1854,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: OPTIONS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d62a573c923f5cb47b8ff65261033b90, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: d62a573c923f5cb47b8ff65261033b90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1917,7 +1917,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.9234314, y: 0, z: 0, w: 0}
+  m_margin: {x: -0.9234314, y: 0, z: 19.1828, w: 0}
   m_textInfo:
     textComponent: {fileID: 1661567973}
     characterCount: 7
@@ -2095,8 +2095,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.200012, y: -83.100006}
-  m_SizeDelta: {x: 230.14, y: 71.72}
+  m_AnchoredPosition: {x: -10.3, y: -78.6}
+  m_SizeDelta: {x: 193.1, y: 80.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1981061683
 MonoBehaviour:
@@ -2262,7 +2262,7 @@ GameObject:
   - component: {fileID: 2138821778}
   - component: {fileID: 2138821777}
   m_Layer: 5
-  m_Name: PlayText
+  m_Name: QuitText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2283,8 +2283,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2, y: 0}
-  m_SizeDelta: {x: -25.14, y: 9.05}
+  m_AnchoredPosition: {x: -1, y: 2.275}
+  m_SizeDelta: {x: -19.2, y: 4.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2138821777
 MonoBehaviour:
@@ -2307,8 +2307,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: QUIT
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 715b80e429c437e40867928a4e1fc975, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d62a573c923f5cb47b8ff65261033b90, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: d62a573c923f5cb47b8ff65261033b90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2351,7 +2351,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_enableKerning: 1

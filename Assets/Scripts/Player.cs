@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
     public float wallStickTime = .25f;
     float timeToWallUnstick;
 
-    float moveSpeed = 6;
+    float moveSpeed = 10;
 
     float accelerationTimeAirborne =.2f;
     float accelerationTimeGrounded =.1f;

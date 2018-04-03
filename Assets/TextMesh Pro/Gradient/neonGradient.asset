@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 2108210716, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
   m_Name: neonGradient
   m_EditorClassIdentifier: 
-  topLeft: {r: 0.9411765, g: 0, b: 0.6815414, a: 1}
-  topRight: {r: 0.9705882, g: 0.11418684, b: 0.80521387, a: 1}
-  bottomLeft: {r: 0.2827587, g: 0, b: 1, a: 1}
-  bottomRight: {r: 0, g: 0.056034327, b: 0.625, a: 1}
+  topLeft: {r: 0, g: 0, b: 0, a: 1}
+  topRight: {r: 0, g: 0, b: 0, a: 1}
+  bottomLeft: {r: 0, g: 0, b: 0, a: 1}
+  bottomRight: {r: 0, g: 0, b: 0, a: 1}
