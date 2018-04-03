@@ -6,10 +6,8 @@ using UnityEngine.UI;
 // Set requiredComponents
 [RequireComponent (typeof (Controller2D))]
 
-public class Player : DistanceTravelled
+public class Player : MonoBehaviour
 {
-    DistanceTravelled distanceTravelled = new DistanceTravelled();
-
     // Variables
     public float jumpHeight =4;
     public float timeToJumpApex =.4f;
@@ -35,8 +33,8 @@ public class Player : DistanceTravelled
     // 2D controller
     Controller2D controller;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         controller = GetComponent<Controller2D>();
 
@@ -45,6 +43,8 @@ public class Player : DistanceTravelled
 
         // Calculations for our jumpVelocity
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        
+        // Debug
         print("Gravity: " + gravity + "Jump Velocity: " + jumpVelocity);
     }
 
