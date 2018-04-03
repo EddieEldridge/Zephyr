@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Set requiredComponents
 [RequireComponent (typeof (Controller2D))]
 
-public class Player : MonoBehaviour {
+public class Player : DistanceTravelled
+{
+    DistanceTravelled distanceTravelled = new DistanceTravelled();
 
     // Variables
     public float jumpHeight =4;
@@ -33,7 +36,8 @@ public class Player : MonoBehaviour {
     Controller2D controller;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         controller = GetComponent<Controller2D>();
 
         // Calculations for our gravity
@@ -46,6 +50,7 @@ public class Player : MonoBehaviour {
 
     void Update()
     {
+
         // Setup horizontal unit collision
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
@@ -139,9 +144,15 @@ public class Player : MonoBehaviour {
         }
 
 
+
         // Set the velocity for our player
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        distanceTravelled.score();
+
     }
+
+
 }

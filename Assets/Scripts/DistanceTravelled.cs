@@ -3,37 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DistanceTravelled : MonoBehaviour 
+public class DistanceTravelled : MonoBehaviour
 {
 
-	// Variables
-	private Vector3 startPosition;
-	public Text scoreText;
-	public int score;
-	public int highScore;
-   	
-	// Functions
+    public float distance;
+    public Transform player;
+    public Text label;
+
+
     void Awake()
-	 {
-        startPosition = transform.position;
-        highScore = 0;
+    {
+        distance = Vector3.Distance(player.position, transform.position);
     }
 
-	void Start ()
-	{
-		displayText();
-	}
- 
-    void Update() 
-	{
-        score = Mathf.RoundToInt(Mathf.Abs(transform.position.x - startPosition.x));
-        highScore = Mathf.Max(score, highScore);
-		score++;
+    // Update is called once per frame
+    void Update()
+    {
+        score();
     }
- 
-	void displayText() 
-	{
-		scoreText.text = "Distance Travelled: " + score.ToString();
-	}
+
+    public void score()
+    {
+        distance = Vector3.Distance(player.position, transform.position);
+        label.text = distance.ToString();
+    }
+
 
 }
