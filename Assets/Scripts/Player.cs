@@ -150,8 +150,6 @@ public class Player : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        distanceTravelled.score();
-
     }
 
 

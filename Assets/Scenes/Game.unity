@@ -974,9 +974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 0
-  player: {fileID: 0}
-  label: {fileID: 0}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 7.5, y: 16}
@@ -1049,9 +1046,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fa9c8b29c248f478f508b700652d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 200
-  player: {fileID: 1009072845}
-  label: {fileID: 1169371004}
+  distanceTravelled: 0
+  lastPosition: {x: 0, y: 0, z: 0}
+  distanceText: {fileID: 0}
 --- !u!1 &1067473337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1253,10 @@ GameObject:
   - component: {fileID: 1169371003}
   - component: {fileID: 1169371005}
   - component: {fileID: 1169371004}
+  - component: {fileID: 1169371008}
+  - component: {fileID: 1169371007}
+  - component: {fileID: 1169371009}
+  - component: {fileID: 1169371006}
   m_Layer: 5
   m_Name: DistanceTravalledText
   m_TagString: Untagged
@@ -1320,6 +1321,81 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1169371002}
+--- !u!114 &1169371006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1169371002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 4
+  timeToJumpApex: 0.4
+  wallJumpClimb: {x: 0, y: 0}
+  wallJumpOff: {x: 0, y: 0}
+  wallLeap: {x: 0, y: 0}
+  wallslideSpeedMax: 3
+  wallStickTime: 0.25
+--- !u!114 &1169371007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1169371002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae529541e9a859e4ab6b8d777b88f528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  horizontalRayCount: 5
+  verticalRayCount: 10
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!61 &1169371008
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1169371002}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1169371009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1169371002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49fa9c8b29c248f478f508b700652d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceTravelled: 0
+  lastPosition: {x: 0, y: 0, z: 0}
+  distanceText: {fileID: 1169371004}
 --- !u!1 &1293852575
 GameObject:
   m_ObjectHideFlags: 0
