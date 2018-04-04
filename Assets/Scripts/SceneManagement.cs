@@ -15,7 +15,7 @@ public class SceneManagement : MonoBehaviour {
 		
 	}
 
-    public void loadNextLevel(int buildNumber)
+    public void LoadNextLevel(int buildNumber)
     {
         SceneManager.LoadScene(buildNumber);
     }

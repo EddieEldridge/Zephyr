@@ -1,27 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CheckpointController : MonoBehaviour {
 
     // Variables
-    public Sprite flag1;
-    public Sprite flag2;
-    private SpriteRenderer checkpointSpriteRenderer;
     public bool checkpointReached;
-
-	// Use this for initialization
-	void Start ()
-    {
-        checkpointSpriteRenderer = GetComponent<SpriteRenderer>();
-	}
+    public int nextLevel;
 
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            checkpointSpriteRenderer.sprite = flag2;
+            // Increment our scene forward 1 scene from the scene we are on 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             checkpointReached = true;
         }
     }
