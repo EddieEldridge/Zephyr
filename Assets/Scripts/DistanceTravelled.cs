@@ -6,35 +6,34 @@ using UnityEngine.UI;
 [RequireComponent (typeof (Player))]
 public class DistanceTravelled : MonoBehaviour
 {
-    Player player;
-
-    public float distanceTravelled=0;
-    public Vector3 lastPosition;
-
+    
+    // Distance variables
+    public float distanceTravelled =0;
+    public float startPos;
+    public float currentPos;
+    public int multiplier = 2;
+    public GameObject player;
     public Text distanceText;
+
+    //Player player;
+
 
 
     void Start()
     {
-        player = GetComponent<Player>();
-        lastPosition = player.transform.position;
+        startPos = player.transform.position.x;
     }
 
 
     void Update()
     {
-        lastPosition = player.transform.position;
+        currentPos = player.transform.position.x - startPos;
+
+        int distanceTravelled = Mathf.Abs(Mathf.RoundToInt(currentPos * multiplier));
 
         if (distanceText != null)
         {
-            distanceTravelled += Vector3.Distance(player.transform.position, lastPosition);
-
-            distanceText.text = "HIGH SCORE: " + player.transform.position.ToString(); // LINE WITH PROBLEM
-        }
-
-        else if(distanceText = null)
-        {
-            print("Yo shit is null");
+            distanceText.text = "HIGH SCORE: " + distanceTravelled.ToString(); // LINE WITH PROBLEM
         }
     }
 }
