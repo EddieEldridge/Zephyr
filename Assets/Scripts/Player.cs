@@ -30,12 +30,20 @@ public class Player : MonoBehaviour
     float velocityXSmoothing;
     Vector3 velocity;
 
+    // Animation Variables
+    Animator anim;
+    public float speed;
+
     // 2D controller
     Controller2D controller;
 
     // Use this for initialization
     void Start ()
     {
+        // Setup our animator
+        anim = GetComponent<Animator>();
+
+        // Setup our controller
         controller = GetComponent<Controller2D>();
 
         // Calculations for our gravity
@@ -43,9 +51,9 @@ public class Player : MonoBehaviour
 
         // Calculations for our jumpVelocity
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        
-        // Debug
-        print("Gravity: " + gravity + "Jump Velocity: " + jumpVelocity);
+
+        // 
+        anim.Play("idle");
     }
 
     void Update()
@@ -109,6 +117,9 @@ public class Player : MonoBehaviour
         // If the player presses space, and there is a collision occuring below them (i.e they are standing on something)
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            // Jump animation
+            anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+
             // Wall jumping
             if(wallSliding)
             {

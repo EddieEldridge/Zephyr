@@ -51,6 +51,8 @@ public class Controller2D : RaycastController
         // Run the start method in our RaycastController
         base.Start();
 
+    
+
         collisions.faceDir = 1;
     }
 
