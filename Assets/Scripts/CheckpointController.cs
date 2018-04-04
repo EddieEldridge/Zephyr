@@ -7,7 +7,6 @@ public class CheckpointController : MonoBehaviour {
     // Variables
     public Sprite flag1;
     public Sprite flag2;
-
     private SpriteRenderer checkpointSpriteRenderer;
     public bool checkpointReached;
 
@@ -22,7 +21,7 @@ public class CheckpointController : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            checkpointSpriteRenderer.sprite = flag;
+            checkpointSpriteRenderer.sprite = flag2;
             checkpointReached = true;
         }
     }
