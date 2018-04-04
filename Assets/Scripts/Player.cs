@@ -31,8 +31,10 @@ public class Player : MonoBehaviour
     Vector3 velocity;
 
     // Animation Variables
-    Animator anim;
     public float speed;
+    private Animator idleAnim;
+    public GameObject PlayerSprite;
+
 
     // 2D controller
     Controller2D controller;
@@ -41,7 +43,10 @@ public class Player : MonoBehaviour
     void Start ()
     {
         // Setup our animator
-        anim = GetComponent<Animator>();
+        PlayerSprite = GameObject.Find("PlayerSprite");
+        idleAnim = GameObject.Find("PlayerSprite").GetComponent<Animator>();
+
+        idleAnim.Play("idle");
 
         // Setup our controller
         controller = GetComponent<Controller2D>();
@@ -52,8 +57,7 @@ public class Player : MonoBehaviour
         // Calculations for our jumpVelocity
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 
-        // 
-        anim.Play("idle");
+       
     }
 
     void Update()
@@ -118,7 +122,7 @@ public class Player : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             // Jump animation
-            anim.SetFloat("speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+
 
             // Wall jumping
             if(wallSliding)
