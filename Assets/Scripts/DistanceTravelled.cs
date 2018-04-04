@@ -8,16 +8,12 @@ public class DistanceTravelled : MonoBehaviour
 {
     
     // Distance variables
-    public float distanceTravelled =0;
+    public float distanceTravelled =100;
     public float startPos;
     public float currentPos;
     public int multiplier = 2;
     public GameObject player;
     public Text distanceText;
-
-    //Player player;
-
-
 
     void Start()
     {
