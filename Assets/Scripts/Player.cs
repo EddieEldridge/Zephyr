@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
     float timeToWallUnstick;
 
     float moveSpeed = 10;
+    public bool lockSpeed = false;
+    public int speedBoostAvailable = 3;
+    public Text speedBoostAvailableText;
 
     float accelerationTimeAirborne =.2f;
     float accelerationTimeGrounded =.1f;
@@ -29,10 +32,6 @@ public class Player : MonoBehaviour
     float jumpVelocity;
     float velocityXSmoothing;
     Vector3 velocity;
-
-    // Animation Variables
-    public float speed;
-    public GameObject PlayerSprite;
 
 
     // 2D controller
@@ -50,7 +49,6 @@ public class Player : MonoBehaviour
         // Calculations for our jumpVelocity
         jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 
-       
     }
 
     void Update()
@@ -151,7 +149,29 @@ public class Player : MonoBehaviour
            
         }
 
+        
 
+        // If the player presses C give them a speedboost for a short time
+        if (Input.GetKeyDown(KeyCode.C) && lockSpeed == false)
+        {
+              
+                // Triple our movespeed
+                moveSpeed = moveSpeed * 3;  
+
+                // Remove a speedBoost
+                speedBoostAvailable -= 1;
+
+                // Lock our speed so our player can't spam the speedboost
+                lockSpeed = true;
+                   
+        }
+
+
+        // Reset movespeed buff after 3 seconds
+        Invoke("ResetSpeed", 3.0f);
+
+        // Display the amount of boosts on the screen
+        speedBoostAvailableText.text = "BOOSTS: " + speedBoostAvailable.ToString();
 
         // Set the velocity for our player
         velocity.y += gravity * Time.deltaTime;
@@ -160,5 +180,11 @@ public class Player : MonoBehaviour
 
     }
 
+    // Reset speed
+    void ResetSpeed()
+    {
+        lockSpeed = false;
+        moveSpeed = 10;
+    }
 
 }

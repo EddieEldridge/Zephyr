@@ -87,6 +87,7 @@ public class Controller2D : RaycastController
             verticalCollisions(ref velocity);
         }
 
+        // Move our player based on our velocity
         transform.Translate(velocity);
 
         if (standingOnPlatform)
