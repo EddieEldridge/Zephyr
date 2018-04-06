@@ -32,7 +32,6 @@ public class Player : MonoBehaviour
 
     // Animation Variables
     public float speed;
-    private Animator idleAnim;
     public GameObject PlayerSprite;
 
 
@@ -42,12 +41,6 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        // Setup our animator
-        PlayerSprite = GameObject.Find("PlayerSprite");
-        idleAnim = GameObject.Find("PlayerSprite").GetComponent<Animator>();
-
-        idleAnim.Play("idle");
-
         // Setup our controller
         controller = GetComponent<Controller2D>();
 
