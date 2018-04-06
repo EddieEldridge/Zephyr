@@ -8,7 +8,7 @@ public class DistanceTravelled : MonoBehaviour
 {
     
     // Distance variables
-    public float distanceTravelled =100;
+    public float distanceTravelled;
     public float startPos;
     public float currentPos;
     public int multiplier = 2;
@@ -29,7 +29,7 @@ public class DistanceTravelled : MonoBehaviour
 
         if (distanceText != null)
         {
-            distanceText.text = "HIGH SCORE: " + distanceTravelled.ToString(); // LINE WITH PROBLEM
+            distanceText.text = "DISTANCE TRAVELLED: " + distanceTravelled.ToString(); // LINE WITH PROBLEM
         }
     }
 }

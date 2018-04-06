@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     float timeToWallUnstick;
 
     float moveSpeed = 10;
-    public bool lockSpeed = false;
+    private bool lockSpeed = false;
     public int speedBoostAvailable = 3;
     public Text speedBoostAvailableText;
 
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        print(moveSpeed);
 
         // Setup horizontal unit collision
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -149,29 +150,40 @@ public class Player : MonoBehaviour
            
         }
 
-        
+       // lockSpeed = false;
 
         // If the player presses C give them a speedboost for a short time
-        if (Input.GetKeyDown(KeyCode.C) && lockSpeed == false)
+        if (Input.GetKeyDown(KeyCode.C))
         {
-              
-                // Triple our movespeed
-                moveSpeed = moveSpeed * 3;  
+            if (lockSpeed == false)
+            {
+                if(speedBoostAvailable>0)
+                {
+                    // Triple our movespeed
+                    moveSpeed = moveSpeed * 3;
 
-                // Remove a speedBoost
-                speedBoostAvailable -= 1;
+                    // Remove a speedBoost
+                    speedBoostAvailable -= 1;
 
-                // Lock our speed so our player can't spam the speedboost
-                lockSpeed = true;
-                   
+                    // Lock our speed so our player can't spam the speedboost
+                    lockSpeed = true;
+                }
+               
+
+                else
+                {
+                    print("No boosts left");
+                }
+            }
+
+            else
+            {
+                print("Boost is on cooldown.");
+            }
+            // Reset movespeed buff after 3 seconds
+            Invoke("ResetSpeed", 3.0f);
+
         }
-
-
-        // Reset movespeed buff after 3 seconds
-        Invoke("ResetSpeed", 3.0f);
-
-        // Display the amount of boosts on the screen
-        speedBoostAvailableText.text = "BOOSTS: " + speedBoostAvailable.ToString();
 
         // Set the velocity for our player
         velocity.y += gravity * Time.deltaTime;

@@ -1337,7 +1337,6 @@ MonoBehaviour:
   wallLeap: {x: 0, y: 0}
   wallslideSpeedMax: 3
   wallStickTime: 0.25
-  lockSpeed: 1
   speedBoostAvailable: 3
   speedBoostAvailableText: {fileID: 0}
 --- !u!1 &398145387
@@ -1397,7 +1396,6 @@ MonoBehaviour:
   wallLeap: {x: 0, y: 0}
   wallslideSpeedMax: 3
   wallStickTime: 0.25
-  lockSpeed: 1
   speedBoostAvailable: 3
   speedBoostAvailableText: {fileID: 0}
 --- !u!114 &398145390
@@ -1834,8 +1832,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 53.7, y: 588.8}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 131.38, y: 589.24}
+  m_SizeDelta: {x: 422.81, y: 31.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &771139121
 MonoBehaviour:
@@ -1855,7 +1853,6 @@ MonoBehaviour:
   wallLeap: {x: 0, y: 0}
   wallslideSpeedMax: 3
   wallStickTime: 0.25
-  lockSpeed: 1
   speedBoostAvailable: 3
   speedBoostAvailableText: {fileID: 771139125}
 --- !u!114 &771139122
@@ -1950,7 +1947,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BOOSTS
+  m_Text: 'BOOSTS: '
 --- !u!222 &771139126
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2298,7 +2295,6 @@ MonoBehaviour:
   wallLeap: {x: 18, y: 17}
   wallslideSpeedMax: 3
   wallStickTime: 0.25
-  lockSpeed: 1
   speedBoostAvailable: 3
   speedBoostAvailableText: {fileID: 1169371004}
 --- !u!23 &1009072843
@@ -2349,7 +2345,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1009072839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 521.5, y: 282.1, z: 0}
+  m_LocalPosition: {x: 801.4, y: 304.1, z: 0}
   m_LocalScale: {x: 2.0890508, y: 1.8138437, z: 1.9592804}
   m_Children:
   - {fileID: 392583296}
@@ -2822,8 +2818,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 54.1, y: -16.6}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 131.51, y: -14.69}
+  m_SizeDelta: {x: 421.92, y: 23.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1169371004
 MonoBehaviour:
@@ -2857,7 +2853,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HIGH SCORE: '
+  m_Text: 'DISTANCE TRAVELLED: '
 --- !u!222 &1169371005
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2882,7 +2878,6 @@ MonoBehaviour:
   wallLeap: {x: 0, y: 0}
   wallslideSpeedMax: 3
   wallStickTime: 0.25
-  lockSpeed: 1
   speedBoostAvailable: 3
   speedBoostAvailableText: {fileID: 1169371004}
 --- !u!114 &1169371007
