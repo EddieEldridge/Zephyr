@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     float accelerationTimeAirborne =.2f;
     float accelerationTimeGrounded =.1f;
 
-    float gravity;
+    public float gravity;
     float jumpVelocity;
     float velocityXSmoothing;
     Vector3 velocity;
@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        print(moveSpeed);
+        speedBoostAvailableText.text = "BOOSTS: " + speedBoostAvailable.ToString();
 
         // Setup horizontal unit collision
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -149,8 +149,6 @@ public class Player : MonoBehaviour
             }
            
         }
-
-       // lockSpeed = false;
 
         // If the player presses C give them a speedboost for a short time
         if (Input.GetKeyDown(KeyCode.C))
