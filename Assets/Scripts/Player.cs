@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     public float wallStickTime = .25f;
     float timeToWallUnstick;
 
-    float moveSpeed = 10;
+    public float moveSpeed = 10;
     private bool lockSpeed = false;
     public int speedBoostAvailable = 3;
     public Text speedBoostAvailableText;
@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     public float gravity;
     float jumpVelocity;
     float velocityXSmoothing;
-    Vector3 velocity;
+    public Vector3 velocity;
 
 
     // 2D controller
@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // Display number of available speed boosts
         speedBoostAvailableText.text = "BOOSTS: " + speedBoostAvailable.ToString();
 
         // Setup horizontal unit collision
@@ -113,8 +114,6 @@ public class Player : MonoBehaviour
         // If the player presses space, and there is a collision occuring below them (i.e they are standing on something)
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            // Jump animation
-
 
             // Wall jumping
             if(wallSliding)
@@ -150,15 +149,15 @@ public class Player : MonoBehaviour
            
         }
 
-        // If the player presses C give them a speedboost for a short time
-        if (Input.GetKeyDown(KeyCode.C))
+        // If the player presses Q give them a speedboost for a short time
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if (lockSpeed == false)
             {
                 if(speedBoostAvailable>0)
                 {
-                    // Triple our movespeed
-                    moveSpeed = moveSpeed * 3;
+                    // Double our movespeed
+                    moveSpeed = moveSpeed * 2;
 
                     // Remove a speedBoost
                     speedBoostAvailable -= 1;
