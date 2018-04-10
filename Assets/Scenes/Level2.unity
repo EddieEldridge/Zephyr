@@ -1763,6 +1763,7 @@ RectTransform:
   - {fileID: 1484773003}
   - {fileID: 1264068507}
   - {fileID: 562464307}
+  - {fileID: 1399054457}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2155,7 +2156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 31.929993, y: -19.720001}
+  m_AnchoredPosition: {x: -44.75, y: -30.749985}
   m_SizeDelta: {x: 309.86, y: 23.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1264068508
@@ -2212,6 +2213,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   timerText: {fileID: 1264068512}
+  bestTimeText: {fileID: 0}
+  checkpointReached2: 0
 --- !u!61 &1264068511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2570,6 +2573,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1344607486
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1344607487}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1344607487
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1344607486}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 658.1022, y: 256.337, z: -0.043700777}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372232509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,6 +2727,165 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1399054456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1399054457}
+  - component: {fileID: 1399054463}
+  - component: {fileID: 1399054462}
+  - component: {fileID: 1399054461}
+  - component: {fileID: 1399054460}
+  - component: {fileID: 1399054459}
+  - component: {fileID: 1399054458}
+  m_Layer: 5
+  m_Name: BestTimeText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1399054457
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399054456}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1035205242}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -44.5, y: -16.75}
+  m_SizeDelta: {x: 309.86, y: 23.44}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1399054458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399054456}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 4
+  timeToJumpApex: 0.4
+  wallJumpClimb: {x: 0, y: 0}
+  wallJumpOff: {x: 0, y: 0}
+  wallLeap: {x: 0, y: 0}
+  wallslideSpeedMax: 3
+  wallStickTime: 0.25
+  moveSpeed: 10
+  speedBoostAvailable: 3
+  speedBoostAvailableText: {fileID: 0}
+  gravity: 0
+  velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &1399054459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399054456}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae529541e9a859e4ab6b8d777b88f528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  horizontalRayCount: 5
+  verticalRayCount: 10
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &1399054460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399054456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1a3c342168c5d246845b7d05fcca6b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  timerText: {fileID: 0}
+  bestTimeText: {fileID: 1399054462}
+  checkpointReached2: 0
+--- !u!61 &1399054461
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399054456}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1399054462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399054456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: BEST TIME
+--- !u!222 &1399054463
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399054456}
 --- !u!1 &1484772996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2910,6 +3100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718a4c1f1c8ef0f45a5217e0f647c826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: 0
+  timerText: {fileID: 0}
+  bestTimeText: {fileID: 0}
+  checkpointReached2: 0
   checkpointReached: 0
   nextLevel: 0
 --- !u!212 &1514718049
@@ -3010,6 +3204,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   timerText: {fileID: 0}
+  bestTimeText: {fileID: 0}
+  checkpointReached2: 0
 --- !u!1 &1572099162
 GameObject:
   m_ObjectHideFlags: 0

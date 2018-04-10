@@ -10,7 +10,7 @@ public class CheckpointController : Timer {
     public int nextLevel;
 
     // Update is called once per frame
-    void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
@@ -18,5 +18,10 @@ public class CheckpointController : Timer {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             checkpointReached = true;
         }
+    }
+
+    public bool setCheckpointStatus(bool checkpointReached)
+    {
+        return checkpointReached;
     }
 }

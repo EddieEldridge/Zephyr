@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour {
     public float timer = 0;
     public Text timerText;
     public Text bestTimeText;
+    public bool checkpointReached2;
 
     // Use this for initialization
     void Start ()
@@ -21,10 +22,12 @@ public class Timer : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+       // checkpointReached2 = CheckpointController.setCheckpoint(checkpointReached);
         timer += Time.deltaTime; //Time.deltaTime will increase the value with 1 every second.
 
         if (timerText != null)
         {
+            // Set the text
             timerText.text = "CURRENT TIME: " + timer.ToString();
 
             // Create a temporary reference to the current scene.
@@ -36,12 +39,11 @@ public class Timer : MonoBehaviour {
             // Tutorial Level
             if (sceneName == "Tutorial")
             {
+                
                 // If statement to set our best time
                 if (timer < PlayerPrefs.GetFloat("BestTutorialTime"))
                 {
-
                     PlayerPrefs.SetFloat("BestTutorialTime", timer);
-
                 }
             }
 
@@ -68,6 +70,8 @@ public class Timer : MonoBehaviour {
 
         if(bestTimeText!=null)
         {
+            // Set the text
+            bestTimeText.text = "BEST TIME: " + PlayerPrefs.GetFloat("BestLevel1Time", 0).ToString();
 
         }
     }
