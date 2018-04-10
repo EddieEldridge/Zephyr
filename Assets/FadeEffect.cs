@@ -22,4 +22,16 @@ public class FadeEffect : MonoBehaviour {
         GUI.depth = drawDepth;
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeOuteTexture);
     }
+
+    public float BeginFade(int direction)
+    {
+        fadeDir = direction;
+        return (fadeSpeed);
+    }
+
+    private void OnLevelWasLoaded()
+    {
+        // When the level is loaded, fade in the new level from a black screen
+        BeginFade(-1);
+    }
 }

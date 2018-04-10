@@ -14,6 +14,10 @@ public class CheckpointController : Timer {
     {
         if (other.tag == "Player")
         {
+
+            // Apply our fadeEffect
+            float fadeTime = GameObject.Find("BackgroundImage").GetComponent<FadeEffect>().BeginFade(1);
+
             // Increment our scene forward 1 scene from the scene we are on 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             checkpointReached = true;
