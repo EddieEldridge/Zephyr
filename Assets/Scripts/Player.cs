@@ -16,11 +16,11 @@ public class Player : MonoBehaviour
     public Vector2 wallJumpOff;
     public Vector2 wallLeap;
 
-    public float wallslideSpeedMax = 3;
-    public float wallStickTime = .25f;
+    public float wallslideSpeedMax = 5;
+    public float wallStickTime = .6f;
     float timeToWallUnstick;
 
-    public float moveSpeed = 10;
+    public float moveSpeed = 15;
     private bool lockSpeed = false;
     public int speedBoostAvailable = 3;
     public Text speedBoostAvailableText;
