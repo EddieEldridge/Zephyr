@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 
 public class Timer : MonoBehaviour {
@@ -9,6 +11,7 @@ public class Timer : MonoBehaviour {
     // Timer variables
     public float timer = 0;
     public Text timerText;
+    public Text bestTimeText;
 
     // Use this for initialization
     void Start ()
@@ -20,11 +23,9 @@ public class Timer : MonoBehaviour {
     {
         timer += Time.deltaTime; //Time.deltaTime will increase the value with 1 every second.
 
-        Mathf.RoundToInt(timer);
-
         if (timerText != null)
         {
-            timerText.text = "TIME: " + timer.ToString();
+            timerText.text = "CURRENT TIME: " + timer.ToString();
 
             // Create a temporary reference to the current scene.
             Scene currentScene = SceneManager.GetActiveScene();
@@ -32,28 +33,42 @@ public class Timer : MonoBehaviour {
             // Retrieve the name of this scene.
             string sceneName = currentScene.name;
 
-            if (sceneName == "Example 1")
+            // Tutorial Level
+            if (sceneName == "Tutorial")
             {
-                // Do something...
-            }
-            else if (sceneName == "Example 2")
-            {
-                // Do something...
+                // If statement to set our best time
+                if (timer < PlayerPrefs.GetFloat("BestTutorialTime"))
+                {
+
+                    PlayerPrefs.SetFloat("BestTutorialTime", timer);
+
+                }
             }
 
-            // Retrieve the index of the scene in the project's build settings.
-            int buildIndex = currentScene.buildIndex;
-
-            // Check the scene name as a conditional.
-            switch (buildIndex)
+            // Level1
+            else if (sceneName == "Level1")
             {
-                case 0:
-                    // Do something...
-                    break;
-                case 1:
-                    // Do something...
-                    break;
+                // If statement to set our best time
+                if (timer < PlayerPrefs.GetFloat("BestLevel1Time"))
+                {
+                    PlayerPrefs.SetFloat("BestLevel1Time", timer);
+                }
             }
+
+            // Level2
+            else if (sceneName == "Level1")
+            {
+                // If statement to set our best time
+                if (timer < PlayerPrefs.GetFloat("BestLevel1Time"))
+                {
+                    PlayerPrefs.SetFloat("BestLevel1Time", timer);
+                }
+            }
+        }
+
+        if(bestTimeText!=null)
+        {
+
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CheckpointController : MonoBehaviour {
+public class CheckpointController : Timer {
 
     // Variables
     public bool checkpointReached;
