@@ -260,7 +260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostAvailableText: {fileID: 501302024}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 7.5, y: 16}
@@ -272,6 +271,7 @@ MonoBehaviour:
   speedBoostAvailable: 3
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
+  speedBoostAvailableText: {fileID: 501302024}
 --- !u!114 &15284871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ Transform:
   m_Children:
   - {fileID: 924079747}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!122 &15284876
 Halo:
@@ -1105,7 +1105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostAvailableText: {fileID: 273261566}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -1117,6 +1116,7 @@ MonoBehaviour:
   speedBoostAvailable: 3
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
+  speedBoostAvailableText: {fileID: 273261566}
 --- !u!114 &273261568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1685,7 +1685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostAvailableText: {fileID: 501302024}
   jumpHeight: 0
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -1697,6 +1696,7 @@ MonoBehaviour:
   speedBoostAvailable: 3
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
+  speedBoostAvailableText: {fileID: 501302024}
 --- !u!114 &501302021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2266,7 +2266,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 736356765}
   m_LocalRotation: {x: -0, y: -0, z: 0.048189174, w: 0.9988382}
-  m_LocalPosition: {x: 589, y: 212, z: 1.75}
+  m_LocalPosition: {x: 643, y: 182, z: 1.75}
   m_LocalScale: {x: 100.581245, y: 71.32277, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2810,7 +2810,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostAvailableText: {fileID: 0}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -2822,6 +2821,7 @@ MonoBehaviour:
   speedBoostAvailable: 3
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
+  speedBoostAvailableText: {fileID: 0}
 --- !u!212 &924079753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3403,7 +3403,7 @@ Transform:
   m_LocalScale: {x: -61.146004, y: -0.6763231, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -1.136, y: -0.052, z: 90}
 --- !u!1 &1302519719
 GameObject:
@@ -3654,7 +3654,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1352007919}
   m_LocalRotation: {x: -0, y: -0, z: 0.048189174, w: 0.9988382}
-  m_LocalPosition: {x: 550, y: 402, z: 1.75}
+  m_LocalPosition: {x: 427, y: 440.1, z: 1.75}
   m_LocalScale: {x: 180.08879, y: 123.09463, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3824,7 +3824,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1417239134}
   m_LocalRotation: {x: -0, y: -0, z: 0.048189174, w: 0.9988382}
-  m_LocalPosition: {x: 645, y: 380, z: 1.75}
+  m_LocalPosition: {x: 750.7, y: 292.4, z: 1.75}
   m_LocalScale: {x: 100.581245, y: 71.32277, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4043,7 +4043,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1451790426}
   m_LocalRotation: {x: -0, y: -0, z: 0.048189174, w: 0.9988382}
-  m_LocalPosition: {x: 605, y: 279.6875, z: 1.75}
+  m_LocalPosition: {x: 507, y: 252, z: 1.75}
   m_LocalScale: {x: 180.08879, y: 123.09463, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4775,7 +4775,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4285712168165970, guid: cffb41c54c81f56489699db9e5a64098, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1882901315339084, guid: cffb41c54c81f56489699db9e5a64098, type: 2}
       propertyPath: m_TagString
@@ -5270,7 +5270,7 @@ Transform:
   m_LocalScale: {x: 4.6733203, y: 0.73169965, z: 1.0363051}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1788543673
 GameObject:
@@ -5881,12 +5881,12 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1998264378}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 01a8738c594ea4e4394828d42eedb147, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.829
+  m_Volume: 0.393
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -6160,7 +6160,7 @@ Transform:
   m_LocalScale: {x: -48.68851, y: -0.6763231, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -0.027, y: 1.1370001, z: 0}
 --- !u!1 &2128637632
 GameObject:
@@ -6212,7 +6212,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostAvailableText: {fileID: 0}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -6224,6 +6223,7 @@ MonoBehaviour:
   speedBoostAvailable: 3
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
+  speedBoostAvailableText: {fileID: 0}
 --- !u!114 &2128637635
 MonoBehaviour:
   m_ObjectHideFlags: 0

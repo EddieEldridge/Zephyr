@@ -1538,7 +1538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostAvailableText: {fileID: 0}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -1550,6 +1549,7 @@ MonoBehaviour:
   speedBoostAvailable: 3
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
+  speedBoostAvailableText: {fileID: 0}
 --- !u!114 &392583302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1784,12 +1784,12 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 430541878}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 01a8738c594ea4e4394828d42eedb147, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.29
+  m_Volume: 0.196
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2625,7 +2625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostAvailableText: {fileID: 771139125}
   jumpHeight: 0
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -2637,6 +2636,7 @@ MonoBehaviour:
   speedBoostAvailable: 3
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
+  speedBoostAvailableText: {fileID: 771139125}
 --- !u!114 &771139122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3574,7 +3574,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: 0.25}
+  m_Offset: {x: 0.41, y: 0.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3585,7 +3585,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.29, y: 1.9}
+  m_Size: {x: 1.1, y: 1.86}
   m_EdgeRadius: 0
 --- !u!114 &1009072842
 MonoBehaviour:
@@ -3598,7 +3598,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostAvailableText: {fileID: 1169371004}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 7.5, y: 16}
@@ -3610,6 +3609,7 @@ MonoBehaviour:
   speedBoostAvailable: 3
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
+  speedBoostAvailableText: {fileID: 1169371004}
 --- !u!23 &1009072843
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3658,7 +3658,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1009072839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 777.125, y: 303.625, z: 0}
+  m_LocalPosition: {x: 499.959, y: 281.669, z: 0}
   m_LocalScale: {x: 2.0890508, y: 1.8138437, z: 1.9592804}
   m_Children:
   - {fileID: 392583296}
@@ -4087,7 +4087,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostAvailableText: {fileID: 1169371004}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -4099,6 +4098,7 @@ MonoBehaviour:
   speedBoostAvailable: 3
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
+  speedBoostAvailableText: {fileID: 1169371004}
 --- !u!114 &1169371007
 MonoBehaviour:
   m_ObjectHideFlags: 0

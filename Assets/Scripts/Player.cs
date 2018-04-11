@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public Text speedBoostAvailableText;
 
     // Variables
     public float jumpHeight =4;
@@ -35,6 +34,9 @@ public class Player : MonoBehaviour
     public Vector3 velocity;
 
 
+    public Text speedBoostAvailableText;
+
+
     // 2D controller
     Controller2D controller;
 
@@ -54,8 +56,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // Display number of available speed boosts
-        speedBoostAvailableText.text = "BOOSTS: " + speedBoostAvailable.ToString();
+        if(speedBoostAvailableText!=null)
+        {
+            // Display number of available speed boosts
+            speedBoostAvailableText.text = "BOOSTS: " + speedBoostAvailable.ToString();
+        }
 
         // Setup horizontal unit collision
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));

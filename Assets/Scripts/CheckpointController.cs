@@ -105,7 +105,9 @@ public class CheckpointController : MonoBehaviour {
                 else if (sceneName == "Level3" && timer < PlayerPrefs.GetFloat("BestLevel3Time"))
                 {
                     PlayerPrefs.SetFloat("BestLevel3Time", timer);
-                }
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 4);
+
+            }
 
 
             // Increment our scene forward 1 scene from the scene we are on 
