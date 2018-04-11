@@ -144,6 +144,7 @@ RectTransform:
   - {fileID: 273261572}
   - {fileID: 2128637633}
   - {fileID: 501302019}
+  - {fileID: 65547005}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -259,6 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 501302024}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 7.5, y: 16}
@@ -268,7 +270,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 501302024}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &15284871
@@ -506,6 +507,97 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &65547004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 65547005}
+  - component: {fileID: 65547008}
+  - component: {fileID: 65547007}
+  - component: {fileID: 65547006}
+  m_Layer: 5
+  m_Name: BestTimeText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &65547005
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65547004}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 10100181}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -75.5, y: -25.125}
+  m_SizeDelta: {x: 309.86, y: 23.44}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &65547006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65547004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718a4c1f1c8ef0f45a5217e0f647c826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointReached: 0
+  nextLevel: 0
+  bestTimeText: {fileID: 65547007}
+  timer: 0
+  timerText: {fileID: 0}
+--- !u!114 &65547007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65547004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'BEST TIME: '
+--- !u!222 &65547008
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 65547004}
 --- !u!1 &80881293
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,6 +1105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 273261566}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -1022,7 +1115,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 273261566}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &273261568
@@ -1593,6 +1685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 501302024}
   jumpHeight: 0
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -1602,7 +1695,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 501302024}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &501302021
@@ -2718,6 +2810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 0}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -2727,7 +2820,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 0}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!212 &924079753
@@ -4744,6 +4836,16 @@ Prefab:
       propertyPath: m_Offset.y
       value: 0.72
       objectReference: {fileID: 0}
+    - target: {fileID: 114247108107626874, guid: cffb41c54c81f56489699db9e5a64098,
+        type: 2}
+      propertyPath: bestTimeText
+      value: 
+      objectReference: {fileID: 65547007}
+    - target: {fileID: 114247108107626874, guid: cffb41c54c81f56489699db9e5a64098,
+        type: 2}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 2128637638}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cffb41c54c81f56489699db9e5a64098, type: 2}
   m_IsPrefabParent: 0
@@ -6096,7 +6198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 22.5, y: -42.625}
+  m_AnchoredPosition: {x: -76.5, y: -39.312515}
   m_SizeDelta: {x: 309.86, y: 23.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2128637634
@@ -6110,6 +6212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 0}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -6119,7 +6222,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 0}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &2128637635
@@ -6153,8 +6255,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   timerText: {fileID: 2128637638}
-  bestTimeText: {fileID: 0}
-  checkpointReached2: 0
 --- !u!61 &2128637637
 BoxCollider2D:
   m_ObjectHideFlags: 0

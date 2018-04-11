@@ -74,8 +74,6 @@ public class CheckpointController : MonoBehaviour {
     // Update is called once per frame
     public void OnTriggerEnter2D(Collider2D other)
     {
-        print("Best Tutoril Time:" + PlayerPrefs.GetFloat("BestTutorialTime").ToString());
-
         // Create a temporary reference to the current scene.
         Scene currentScene = SceneManager.GetActiveScene();
 
@@ -84,45 +82,31 @@ public class CheckpointController : MonoBehaviour {
 
         if (other.tag == "Player")
         {
-            print("COLLISIONS function");
 
                 // Tutorial Level
-                if (sceneName == "Tutorial")
+                if (sceneName == "Tutorial" && timer < PlayerPrefs.GetFloat("BestTutorialTime"))
                 {
-                    print("INSIDE function");
-                    PlayerPrefs.SetFloat("BestTutorialTime", timer);                 
+                     PlayerPrefs.SetFloat("BestTutorialTime", timer);
                 }
 
                 // Level1
-                else if (sceneName == "Level1")
+                else if (sceneName == "Level1" && timer < PlayerPrefs.GetFloat("BestLevel1Time"))
                 {
-                    // If statement to set our best time
-                    if (timer < PlayerPrefs.GetFloat("BestLevel1Time"))
-                    {
-                        PlayerPrefs.SetFloat("BestLevel1Time", timer);
-                    }
+                     PlayerPrefs.SetFloat("BestLevel1Time", timer);
                 }
 
                 // Level2
-                else if (sceneName == "Level2")
+                else if (sceneName == "Level2" && timer < PlayerPrefs.GetFloat("BestLevel2time"))
                 {
-                    // If statement to set our best time
-                    if (timer < PlayerPrefs.GetFloat("BestLevel2time"))
-                    {
-                        PlayerPrefs.SetFloat("BestLevel2time", timer);
-                    }
+                    PlayerPrefs.SetFloat("BestLevel2time", timer);
                 }
 
                 // Level3
-                else if (sceneName == "Level3")
+                else if (sceneName == "Level3" && timer < PlayerPrefs.GetFloat("BestLevel3Time"))
                 {
-                    // If statement to set our best time
-                    if (timer < PlayerPrefs.GetFloat("BestLevel3Time"))
-                    {
-                        PlayerPrefs.SetFloat("BestLevel3Time", timer);
-                    }
+                    PlayerPrefs.SetFloat("BestLevel3Time", timer);
                 }
-            
+
 
             // Increment our scene forward 1 scene from the scene we are on 
             // Apply our fadeEffect
