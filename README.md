@@ -12,7 +12,7 @@
 * [Information](#information)
 * [Technologies](#technologies)
 * [Resources](#resources)
-* [Wiki](https://github.com/EddieEldridge/GoLangAutomaton/wiki)
+* [Wiki](https://github.com/EddieEldridge/UnityZephyr/wiki)
 
 ## Description
 The aim of this project was to develop an application for the Universal Windows Platform. I chose a Unity game as any kind of Unity project can be run on UWP devices.
@@ -34,7 +34,7 @@ For more information on concepts discussed and used in this program, please refe
 
 ## Documentation
 - GitHub readMe
-- Wiki for more information on concepts discussed in this project
+- [Wiki](https://github.com/EddieEldridge/UnityZephyr/wiki) for more information on concepts discussed in this project
 
 ## Software
 - [Unity - Personal Edition](https://store.unity.com/products/unity-personal)
