@@ -25,23 +25,29 @@ The program was designed using completely free software and assets. I made many 
 
 I was very impressed with the Unity engine and it's capabilities. It is intuitive and easy to add new features, design new levels and implement your ideas.
 
+## How to run the program
+The program can be run by simply executing the Zephyr.exe file found in the repository.
+
+
+## Information
+For more information on concepts discussed and used in this program, please refer to the [Wiki](https://github.com/EddieEldridge/UnityZephyr/wiki) and resources below.
+
 ## Documentation
 - GitHub readMe
 - Wiki for more information on concepts discussed in this project
 
 ## Software
-- [Unity - Personal Edition]()
-- [Visual Studio 2017]()
-- [Paint.net]()
-- [Audacity]()
+- [Unity - Personal Edition](https://store.unity.com/products/unity-personal)
+- [Visual Studio 2017](https://www.visualstudio.com/)
+- [Paint.net](https://www.getpaint.net/)
+- [Audacity](https://www.audacityteam.org/)
 
 ## Links
 
 ## Resources
-https://www.youtube.com/user/Cercopithecan (For help with more complicated calculations such as unit collision and slopes)
-
-https://www.youtube.com/user/Unity3D 
-
+- [Cercopithecan](https://www.youtube.com/user/Cercopithecan)
+- [UnityOfficalYoutube](https://www.youtube.com/user/Unity3D)
+- [Brackeys](https://www.youtube.com/user/Brackeys)
 
 ## Developers
 Edward Eldridge (G00337490)
