@@ -869,6 +869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 0}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -878,7 +879,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 0}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!212 &467584119
@@ -2412,7 +2412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -44.75, y: -30.749985}
+  m_AnchoredPosition: {x: -75.8125, y: -31.5}
   m_SizeDelta: {x: 309.86, y: 23.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1264068508
@@ -2426,6 +2426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 0}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -2435,7 +2436,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 0}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1264068509
@@ -2469,8 +2469,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   timerText: {fileID: 1264068512}
-  bestTimeText: {fileID: 0}
-  checkpointReached2: 0
 --- !u!61 &1264068511
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2585,6 +2583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 1484772997}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 7.5, y: 16}
@@ -2594,7 +2593,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 1484772997}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1316213952
@@ -2877,7 +2875,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -44.5, y: -16.75}
+  m_AnchoredPosition: {x: -77, y: -17.5}
   m_SizeDelta: {x: 309.86, y: 23.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1399054458
@@ -2891,6 +2889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 0}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -2900,7 +2899,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 0}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1399054459
@@ -2934,8 +2932,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   timerText: {fileID: 0}
-  bestTimeText: {fileID: 1399054462}
-  checkpointReached2: 0
 --- !u!61 &1399054461
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3065,6 +3061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 1484772997}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -3074,7 +3071,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 1484772997}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1484772999
@@ -3311,12 +3307,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718a4c1f1c8ef0f45a5217e0f647c826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
-  timerText: {fileID: 0}
-  bestTimeText: {fileID: 0}
-  checkpointReached2: 0
   checkpointReached: 0
   nextLevel: 0
+  bestTimeText: {fileID: 0}
+  timer: 0
 --- !u!212 &1514718049
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3415,8 +3409,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   timerText: {fileID: 0}
-  bestTimeText: {fileID: 0}
-  checkpointReached2: 0
 --- !u!1 &1572099162
 GameObject:
   m_ObjectHideFlags: 0
@@ -3886,6 +3878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 1789779751}
   jumpHeight: 0
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -3895,7 +3888,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 1789779751}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1789779748

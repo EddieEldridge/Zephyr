@@ -11,8 +11,6 @@ public class Timer : MonoBehaviour {
     // Timer variables
     public float timer = 0;
     public Text timerText;
-    public Text bestTimeText;
-    public bool checkpointReached2;
 
     // Use this for initialization
     void Start ()
@@ -28,51 +26,10 @@ public class Timer : MonoBehaviour {
         if (timerText != null)
         {
             // Set the text
-            timerText.text = "CURRENT TIME: " + timer.ToString();
-
-            // Create a temporary reference to the current scene.
-            Scene currentScene = SceneManager.GetActiveScene();
-
-            // Retrieve the name of this scene.
-            string sceneName = currentScene.name;
-
-            // Tutorial Level
-            if (sceneName == "Tutorial")
-            {
-                
-                // If statement to set our best time
-                if (timer < PlayerPrefs.GetFloat("BestTutorialTime"))
-                {
-                    PlayerPrefs.SetFloat("BestTutorialTime", timer);
-                }
-            }
-
-            // Level1
-            else if (sceneName == "Level1")
-            {
-                // If statement to set our best time
-                if (timer < PlayerPrefs.GetFloat("BestLevel1Time"))
-                {
-                    PlayerPrefs.SetFloat("BestLevel1Time", timer);
-                }
-            }
-
-            // Level2
-            else if (sceneName == "Level1")
-            {
-                // If statement to set our best time
-                if (timer < PlayerPrefs.GetFloat("BestLevel1Time"))
-                {
-                    PlayerPrefs.SetFloat("BestLevel1Time", timer);
-                }
-            }
+            timerText.text = "CURRENT TIME: " + timer.ToString();       
+            
         }
 
-        if(bestTimeText!=null)
-        {
-            // Set the text
-            bestTimeText.text = "BEST TIME: " + PlayerPrefs.GetFloat("BestLevel1Time", 0).ToString();
-
-        }
+        
     }
 }

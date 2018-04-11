@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public Text speedBoostAvailableText;
+
     // Variables
     public float jumpHeight =4;
     public float timeToJumpApex =.4f;
@@ -23,7 +25,6 @@ public class Player : MonoBehaviour
     public float moveSpeed = 15;
     private bool lockSpeed = false;
     public int speedBoostAvailable = 3;
-    public Text speedBoostAvailableText;
 
     float accelerationTimeAirborne =.2f;
     float accelerationTimeGrounded =.1f;

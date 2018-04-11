@@ -487,10 +487,7 @@ GameObject:
   - component: {fileID: 117209180}
   - component: {fileID: 117209186}
   - component: {fileID: 117209185}
-  - component: {fileID: 117209184}
-  - component: {fileID: 117209183}
-  - component: {fileID: 117209182}
-  - component: {fileID: 117209181}
+  - component: {fileID: 117209187}
   m_Layer: 5
   m_Name: BestTimeText
   m_TagString: Untagged
@@ -516,87 +513,6 @@ RectTransform:
   m_AnchoredPosition: {x: -24.375, y: -18.5}
   m_SizeDelta: {x: 309.86, y: 23.44}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &117209181
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 117209179}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpHeight: 4
-  timeToJumpApex: 0.4
-  wallJumpClimb: {x: 0, y: 0}
-  wallJumpOff: {x: 0, y: 0}
-  wallLeap: {x: 0, y: 0}
-  wallslideSpeedMax: 3
-  wallStickTime: 0.25
-  moveSpeed: 10
-  speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 0}
-  gravity: 0
-  velocity: {x: 0, y: 0, z: 0}
---- !u!114 &117209182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 117209179}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae529541e9a859e4ab6b8d777b88f528, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalRaySpacing: 0
-  verticalRaySpacing: 0
-  horizontalRayCount: 5
-  verticalRayCount: 10
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 0
---- !u!114 &117209183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 117209179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1a3c342168c5d246845b7d05fcca6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 0
-  timerText: {fileID: 0}
-  bestTimeText: {fileID: 117209185}
-  checkpointReached2: 0
---- !u!61 &117209184
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 117209179}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &117209185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,13 +545,28 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BEST TIME
+  m_Text: 'BEST TIME: '
 --- !u!222 &117209186
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 117209179}
+--- !u!114 &117209187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117209179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718a4c1f1c8ef0f45a5217e0f647c826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointReached: 0
+  nextLevel: 0
+  bestTimeText: {fileID: 117209185}
+  timer: 0
 --- !u!1 &142779205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,6 +1537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 0}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -1615,7 +1547,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 0}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &392583302
@@ -1690,6 +1621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 0}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -1699,7 +1631,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 0}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &398145390
@@ -1758,8 +1689,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: 0
   timerText: {fileID: 398145393}
-  bestTimeText: {fileID: 0}
-  checkpointReached2: 0
 --- !u!114 &398145393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2735,6 +2664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 771139125}
   jumpHeight: 0
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -2744,7 +2674,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 771139125}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &771139122
@@ -3708,6 +3637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 1169371004}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 7.5, y: 16}
@@ -3717,7 +3647,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 1169371004}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!23 &1009072843
@@ -3768,7 +3697,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1009072839}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 568.25, y: 281.75, z: 0}
+  m_LocalPosition: {x: 759.375, y: 303.625, z: 0}
   m_LocalScale: {x: 2.0890508, y: 1.8138437, z: 1.9592804}
   m_Children:
   - {fileID: 392583296}
@@ -4144,7 +4073,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 127.187485, y: -17.6875}
+  m_AnchoredPosition: {x: 135.5, y: -17.6875}
   m_SizeDelta: {x: 428.47, y: 25.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1169371004
@@ -4197,6 +4126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedBoostAvailableText: {fileID: 1169371004}
   jumpHeight: 4
   timeToJumpApex: 0.4
   wallJumpClimb: {x: 0, y: 0}
@@ -4206,7 +4136,6 @@ MonoBehaviour:
   wallStickTime: 0.25
   moveSpeed: 10
   speedBoostAvailable: 3
-  speedBoostAvailableText: {fileID: 1169371004}
   gravity: 0
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1169371007
