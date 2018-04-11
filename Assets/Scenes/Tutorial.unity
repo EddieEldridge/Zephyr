@@ -567,6 +567,7 @@ MonoBehaviour:
   nextLevel: 0
   bestTimeText: {fileID: 117209185}
   timer: 0
+  timerText: {fileID: 0}
 --- !u!1 &142779205
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,8 +654,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 117209180}
-  - {fileID: 1169371003}
   - {fileID: 398145388}
+  - {fileID: 1169371003}
   - {fileID: 771139120}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1582,8 +1583,6 @@ GameObject:
   - component: {fileID: 398145394}
   - component: {fileID: 398145393}
   - component: {fileID: 398145391}
-  - component: {fileID: 398145392}
-  - component: {fileID: 398145390}
   - component: {fileID: 398145389}
   m_Layer: 5
   m_Name: TimeText
@@ -1603,7 +1602,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 142779209}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1616,41 +1615,16 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 398145387}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37cdcf1f89fe9724bac88e557b48d78c, type: 3}
+  m_Script: {fileID: 11500000, guid: 718a4c1f1c8ef0f45a5217e0f647c826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedBoostAvailableText: {fileID: 0}
-  jumpHeight: 4
-  timeToJumpApex: 0.4
-  wallJumpClimb: {x: 0, y: 0}
-  wallJumpOff: {x: 0, y: 0}
-  wallLeap: {x: 0, y: 0}
-  wallslideSpeedMax: 3
-  wallStickTime: 0.25
-  moveSpeed: 10
-  speedBoostAvailable: 3
-  gravity: 0
-  velocity: {x: 0, y: 0, z: 0}
---- !u!114 &398145390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 398145387}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae529541e9a859e4ab6b8d777b88f528, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  horizontalRaySpacing: 0
-  verticalRaySpacing: 0
-  horizontalRayCount: 5
-  verticalRayCount: 10
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 0
+  checkpointReached: 0
+  nextLevel: 0
+  bestTimeText: {fileID: 0}
+  timer: 0
+  timerText: {fileID: 398145393}
 --- !u!61 &398145391
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1676,19 +1650,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &398145392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 398145387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1a3c342168c5d246845b7d05fcca6b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 0
-  timerText: {fileID: 398145393}
 --- !u!114 &398145393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4069,7 +4030,7 @@ RectTransform:
   m_LocalScale: {x: 0.59115994, y: 0.5812025, z: 1.4530421}
   m_Children: []
   m_Father: {fileID: 142779209}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}

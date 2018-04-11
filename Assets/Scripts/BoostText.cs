@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BoostText : Player {
+public class BoostText : MonoBehaviour {
 
-    public Text speedBoostAvailableText;
 
     // Use this for initialization
     void Start () {

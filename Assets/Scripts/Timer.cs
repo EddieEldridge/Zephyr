@@ -20,7 +20,6 @@ public class Timer : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-       // checkpointReached2 = CheckpointController.setCheckpoint(checkpointReached);
         timer += Time.deltaTime; //Time.deltaTime will increase the value with 1 every second.
 
         if (timerText != null)
