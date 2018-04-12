@@ -10,7 +10,7 @@
 * [How to run](#how-to-run-the-program)
 * [Design](#design)
 * [Information](#information)
-* [Technologies](#technologies)
+* [Software](#Software)
 * [Resources](#resources)
 * [Wiki](https://github.com/EddieEldridge/UnityZephyr/wiki)
 
@@ -22,6 +22,9 @@ The game consists of 3 levels and a tutorial. It has mechanics such as jumping, 
 
 ## Design
 The program was designed using completely free software and assets. I made many of the assets myself using free software such as Paint.net and Audacity. All the software I used was completely free and I didn't have to pay for anything. 
+
+I worked on my project over about a month and used GitHubs kanban's boards feature to keep myself organized. It can be found [here](https://github.com/EddieEldridge/UnityZephyr/projects/1).
+
 
 I was very impressed with the Unity engine and it's capabilities. It is intuitive and easy to add new features, design new levels and implement your ideas.
 
@@ -41,8 +44,6 @@ For more information on concepts discussed and used in this program, please refe
 - [Visual Studio 2017](https://www.visualstudio.com/)
 - [Paint.net](https://www.getpaint.net/)
 - [Audacity](https://www.audacityteam.org/)
-
-## Links
 
 ## Resources
 - [Cercopithecan](https://www.youtube.com/user/Cercopithecan)
