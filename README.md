@@ -33,7 +33,7 @@ The program can be run by simply downloading/cloning this repository and running
 ## Information
 For more information on concepts discussed and used in this program, please refer to the [Wiki](https://github.com/EddieEldridge/UnityZephyr/wiki) and resources below.
 
-The exported UWP version of this application can be found [here](https://galwaymayoinstitute-my.sharepoint.com/personal/g00337490_gmit_ie/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fg00337490_gmit_ie%2FDocuments%2FZephyrUWP%2Ezip&parent=%2Fpersonal%2Fg00337490_gmit_ie%2FDocuments&slrid=34255d9e-20db-5000-6d57-27605bdc911c)
+The exported UWP version of this application can be found [here](https://galwaymayoinstitute-my.sharepoint.com/:u:/g/personal/g00337490_gmit_ie/EVH9n7MXQVpBrMgR1VkKFfoBAEsbTj7_MAMZPa-Il2Ss9Q?e=r9QfZR)
 
 ## Documentation
 - GitHub readMe
