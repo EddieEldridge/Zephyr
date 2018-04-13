@@ -18,7 +18,7 @@
 The aim of this project was to develop an application for the Universal Windows Platform. I chose a Unity game as any kind of Unity project can be run on UWP devices.
 
 ## Program
-The game consists of 3 levels and a tutorial. It has mechanics such as jumping, moving platforms and wall-jumping. The aim of the game is see how fast you can complete a level. At the moment, the levels are quite short but I intend to update this game with longer levels and more content in the future.
+The game consists of 3 levels and a tutorial. It has mechanics such as jumping, moving platforms and wall-jumping. The aim of the game is see how fast you can complete a level. The players best times will be stored so they don't need to record it manually. At the moment, the levels are quite short but I intend to update this game with longer levels and more content in the future.
 
 ## Design
 The program was designed using completely free software and assets. I made many of the assets myself using free software such as Paint.net and Audacity. All the software I used was completely free and I didn't have to pay for anything. 
