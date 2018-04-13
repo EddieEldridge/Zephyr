@@ -25,15 +25,15 @@ The program was designed using completely free software and assets. I made many 
 
 I worked on my project over about a month and used GitHubs kanban's boards feature to keep myself organized. It can be found [here](https://github.com/EddieEldridge/UnityZephyr/projects/1).
 
-
 I was very impressed with the Unity engine and it's capabilities. It is intuitive and easy to add new features, design new levels and implement your ideas.
 
 ## How to run the program
-The program can be run by simply executing the Zephyr.exe file found in the repository.
-
+The program can be run by simply downloading/cloning this repository and running the UnityZephyr.exe file found in the repository.
 
 ## Information
 For more information on concepts discussed and used in this program, please refer to the [Wiki](https://github.com/EddieEldridge/UnityZephyr/wiki) and resources below.
+
+The exported UWP version of this application can be found [here](https://galwaymayoinstitute-my.sharepoint.com/personal/g00337490_gmit_ie/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fg00337490_gmit_ie%2FDocuments%2FZephyrUWP%2Ezip&parent=%2Fpersonal%2Fg00337490_gmit_ie%2FDocuments&slrid=34255d9e-20db-5000-6d57-27605bdc911c)
 
 ## Documentation
 - GitHub readMe
