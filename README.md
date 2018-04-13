@@ -50,5 +50,8 @@ For more information on concepts discussed and used in this program, please refe
 - [UnityOfficalYoutube](https://www.youtube.com/user/Unity3D)
 - [Brackeys](https://www.youtube.com/user/Brackeys)
 
+## Acknowledgements
+-[G&J - Disconnect](https://soundcloud.com/argofox/gj-disconscient) For the music :)
+
 ## Developers
 Edward Eldridge (G00337490)
